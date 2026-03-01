@@ -5,6 +5,7 @@
 	Phantom by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
 */
 
 html, body, div, span, applet, object,
@@ -3327,3 +3328,55 @@ input, select, textarea {
 			}
 
 		}
+
+/* === Custom tile behavior: image first, color + text on hover === */
+
+/* Make sure tiles clip content nicely */
+.tiles article {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Default: show the image only (no gradient overlay, no text) */
+.tiles article > .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hide the colored overlay and the X-lines by default */
+.tiles article > .image:before,
+.tiles article > .image:after {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* Hide title + description by default */
+.tiles article > a h2,
+.tiles article > a .content {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Hover state: show the gradient color overlay + lines */
+.tiles article:hover > .image:before {
+  opacity: 0.8; /* this uses the existing style1/style2/... colors */
+}
+
+.tiles article:hover > .image:after {
+  opacity: 0.25;
+}
+
+/* Optional: dim the image a bit on hover so the color pops more */
+.tiles article:hover > .image img {
+  filter: brightness(0.5);
+}
+
+/* Hover state: reveal title + description */
+.tiles article:hover > a h2,
+.tiles article:hover > a .content {
+  opacity: 1;
+  transform: translateY(0);
+}
