@@ -3352,11 +3352,17 @@ input, select, textarea {
   transition: opacity 0.35s ease;
 }
 
+/* Override Phantom's original max-height animation on .content */
+.tiles article > a .content {
+  max-height: none;              /* no clipping */
+  margin-top: 0.35em;
+}
+
 /* Default: hide title + description and nudge them slightly down */
 .tiles article > a h2,
 .tiles article > a .content {
   opacity: 0;
-  transform: translateY(0px);
+  transform: translateY(5px);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -3382,3 +3388,7 @@ input, select, textarea {
   transform: translateY(0);
 }
 
+/* Also make sure the global hover rule for .content doesn't re-apply max-height */
+body:not(.is-touch) .tiles article:hover .content {
+  max-height: none;
+}
