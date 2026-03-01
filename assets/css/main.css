@@ -3392,3 +3392,14 @@ input, select, textarea {
 body:not(.is-touch) .tiles article:hover .content {
   max-height: none;
 }
+/* Force tiles to be perfect squares */
+.tiles article {
+  aspect-ratio: 1 / 1;
+}
+
+/* Make images fill the square cleanly */
+.tiles article > .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
