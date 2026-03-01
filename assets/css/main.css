@@ -3329,19 +3329,31 @@ input, select, textarea {
 
 		}
 
-/* === Custom tile behavior: image first, color + text on hover === */
+/* === Custom tile behavior: square tiles, image first, color + text on hover === */
 
-/* Make sure tiles clip content nicely */
+/* Base tile container */
 .tiles article {
   position: relative;
   overflow: hidden;
 }
 
-/* Default: show the image only (no gradient overlay or lines visible yet) */
+/* Make the visible tile area a perfect square */
+.tiles article > .image {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;      /* 1:1 aspect ratio square */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Make the image fill that square and crop as needed */
 .tiles article > .image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;         /* no stretching, just cropping */
   display: block;
 }
 
@@ -3354,7 +3366,7 @@ input, select, textarea {
 
 /* Override Phantom's original max-height animation on .content */
 .tiles article > a .content {
-  max-height: none;              /* no clipping */
+  max-height: none;          /* no clipping */
   margin-top: 0.35em;
 }
 
@@ -3366,7 +3378,7 @@ input, select, textarea {
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* Hover: show the gradient color overlay (Phantom's existing style colors) */
+/* Hover: show the gradient color overlay (style1/style2/... colors) */
 .tiles article:hover > .image:before {
   opacity: 0.8;
 }
@@ -3391,15 +3403,4 @@ input, select, textarea {
 /* Also make sure the global hover rule for .content doesn't re-apply max-height */
 body:not(.is-touch) .tiles article:hover .content {
   max-height: none;
-}
-/* Force tiles to be perfect squares */
-.tiles article {
-  aspect-ratio: 1 / 1;
-}
-
-/* Make images fill the square cleanly */
-.tiles article > .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
