@@ -3337,7 +3337,7 @@ input, select, textarea {
   overflow: hidden;
 }
 
-/* Default: show the image only (no gradient overlay, no text) */
+/* Default: show the image only (no gradient overlay or lines visible yet) */
 .tiles article > .image img {
   width: 100%;
   height: 100%;
@@ -3345,36 +3345,37 @@ input, select, textarea {
   display: block;
 }
 
-/* Hide the colored overlay and the X-lines by default */
+/* Hide the colored overlay and X-lines by default */
 .tiles article > .image:before,
 .tiles article > .image:after {
   opacity: 0;
   transition: opacity 0.35s ease;
 }
 
-/* Hide title + description by default */
+/* Default: hide title + description and nudge them slightly down */
 .tiles article > a h2,
 .tiles article > a .content {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(5px);
   transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-/* Hover state: show the gradient color overlay + lines */
+/* Hover: show the gradient color overlay (Phantom's existing style colors) */
 .tiles article:hover > .image:before {
-  opacity: 0.8; /* this uses the existing style1/style2/... colors */
+  opacity: 0.8;
 }
 
+/* Hover: show the subtle X-lines */
 .tiles article:hover > .image:after {
   opacity: 0.25;
 }
 
-/* Optional: dim the image a bit on hover so the color pops more */
+/* Hover: dim the image so the color + text pop more */
 .tiles article:hover > .image img {
   filter: brightness(0.5);
 }
 
-/* Hover state: reveal title + description */
+/* Hover: fade + slide title & description into place */
 .tiles article:hover > a h2,
 .tiles article:hover > a .content {
   opacity: 1;
