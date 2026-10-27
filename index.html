@@ -337,8 +337,9 @@ function frame(now){if(done||quitting)return;
  var eX=M.edgeE[0]*c-M.edgeE[1]*s,eY=M.edgeE[0]*s+M.edgeE[1]*c,nX=-eY,nY=eX;
  if(nX*nsx+nY*nsy<0){nX=-nX;nY=-nY}
  var th=Math.atan2(nX,-nY),Lg=Math.abs(vw*Math.sin(th))+Math.abs(vh*Math.cos(th)),ep=sp(M.edgeP[0],M.edgeP[1],c,s,k),
-  E=((ep[0]-vw/2)*nX+(ep[1]-vh/2)*nY)+Lg/2-3*k,fe=Math.max(12,26*k),
-  mk2='linear-gradient('+(th*180/Math.PI).toFixed(2)+'deg,transparent '+(E-fe).toFixed(1)+'px,#000 '+E.toFixed(1)+'px)';
+  E=((ep[0]-vw/2)*nX+(ep[1]-vh/2)*nY)+Lg/2-3*k,fe=BW*sc*.95*(1-.8*cl((u-.8)/.2)),
+  ST=[[0,0],[.1,.028],[.25,.156],[.5,.5],[.75,.844],[.9,.972],[1,1]],
+  mk2='linear-gradient('+(th*180/Math.PI).toFixed(2)+'deg,'+ST.map(function(q){return 'rgba(0,0,0,'+q[1]+') '+(E-fe+q[0]*fe).toFixed(1)+'px'}).join(',')+')';
  if(u>=1)bgl.style.display='none';
  bgl.style.webkitMaskImage=mk2;bgl.style.maskImage=mk2;
  if(t>D+TAIL){finish();return}
