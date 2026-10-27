@@ -253,7 +253,7 @@ window.addEventListener('hashchange',function(){render()});window.addEventListen
 <script>
 (function(){
 var root=document.documentElement;if(!root.classList.contains('intro-on'))return;
-var M={"w": 900, "h": 806, "hub1": [477.1, 166.8], "hub2": [743.9, 330.4], "R1": 103.8, "R2": 116.4, "u1": [-0.357, -0.934], "u2": [-0.445, -0.896], "tipL": [103.8, 251.7], "tipR": [742.7, 679.7], "center": [453.1, 402.8], "nose": [0.91, -0.4]};
+var M={"w": 900, "h": 806, "hub1": [477.1, 166.8], "hub2": [743.9, 330.4], "R1": 103.8, "R2": 116.4, "u1": [-0.357, -0.934], "u2": [-0.445, -0.896], "tipL": [103.8, 251.7], "tipR": [742.7, 679.7], "center": [453.1, 402.8], "nose": [0.91, -0.4], "edgeP": [434.3, 453.6], "edgeE": [0.8062, 0.5917]};
 var el=document.getElementById('intro'),bgl=document.getElementById('introBg'),cv=document.getElementById('introFx'),ctx=cv.getContext('2d'),pl=document.getElementById('introPlane'),img=document.getElementById('introImg'),sv=document.getElementById('introProps'),skip=document.getElementById('introSkip');
 try{sessionStorage.setItem('introSeen','1')}catch(e){}
 var D=3.5,TAIL=.4,done=false,quitting=false,started=false;
@@ -334,8 +334,12 @@ function frame(now){if(done||quitting)return;
   q.x+=q.vx*dt;q.y+=q.vy*dt;q.vx*=.985;q.vy*=.985;var f=1-q.a/q.l;
   ctx.strokeStyle='rgba(215,240,255,'+(.55*f*f).toFixed(3)+')';ctx.lineWidth=q.w*(0.6+f);ctx.beginPath();ctx.moveTo(q.x,q.y);ctx.lineTo(q.x-q.vx*.06,q.y-q.vy*.06);ctx.stroke()}
  ctx.globalCompositeOperation='source-over';
- var th=Math.atan2(dx,-dy),Lg=Math.abs(vw*Math.sin(th))+Math.abs(vh*Math.cos(th)),bs=BW*sc,
-  E=((px-vw/2)*dx+(py-vh/2)*dy)+Lg/2+bs*.05,fe=bs*.55,mk2='linear-gradient('+(th*180/Math.PI).toFixed(2)+'deg,transparent '+(E-fe).toFixed(1)+'px,#000 '+E.toFixed(1)+'px)';
+ var eX=M.edgeE[0]*c-M.edgeE[1]*s,eY=M.edgeE[0]*s+M.edgeE[1]*c,nX=-eY,nY=eX;
+ if(nX*nsx+nY*nsy<0){nX=-nX;nY=-nY}
+ var th=Math.atan2(nX,-nY),Lg=Math.abs(vw*Math.sin(th))+Math.abs(vh*Math.cos(th)),ep=sp(M.edgeP[0],M.edgeP[1],c,s,k),
+  E=((ep[0]-vw/2)*nX+(ep[1]-vh/2)*nY)+Lg/2-3*k,fe=Math.max(12,26*k),
+  mk2='linear-gradient('+(th*180/Math.PI).toFixed(2)+'deg,transparent '+(E-fe).toFixed(1)+'px,#000 '+E.toFixed(1)+'px)';
+ if(u>=1)bgl.style.display='none';
  bgl.style.webkitMaskImage=mk2;bgl.style.maskImage=mk2;
  if(t>D+TAIL){finish();return}
  requestAnimationFrame(frame)}
