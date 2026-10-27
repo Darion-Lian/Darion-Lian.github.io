@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>
+(function(){try{var h=location.hash,home=(!h||h==='#'||h==='#home'),rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches,seen=false;try{seen=sessionStorage.getItem('introSeen')==='1'}catch(e){}
+if(home&&!rm&&!seen)document.documentElement.classList.add('intro-on')}catch(e){}})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Darion Lian – Engineering Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
@@ -86,8 +90,31 @@ footer h2{font-size:1.8rem;margin-bottom:.6rem}footer p{margin:.2rem 0}
 .vlink{display:block;margin:0 0 1.5rem;padding:1.1rem 1.3rem;border-radius:8px;background:var(--ink);color:var(--bg);text-decoration:none}.vlink b{display:block;font:700 1.3rem var(--display)}.vlink span{font:500 .95rem var(--display);opacity:.8}.vlink:hover{background:var(--accent)}
 .mission{border-left:4px solid var(--signal);background:var(--surface);padding:.9rem 1.2rem;border-radius:0 6px 6px 0;font-size:1.05rem;margin:0 0 1.5rem}.poster{margin:0 0 1rem}.poster img{width:100%;display:block;border-radius:6px;cursor:zoom-in;background:var(--surface)}.poster figcaption{font-size:.95rem;color:var(--muted);margin-top:.4rem}.srow{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;padding:2.5rem 0;border-top:1px solid var(--line)}.srow.rev .st{order:2}.srow.rev .sf{order:1}.srow h2{font-size:1.6rem;margin-bottom:.8rem}.st ul{padding-left:1.2rem;margin:0}.st li{margin:.5rem 0}.sf{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem}.sf figure{margin:0}
 .sf{grid-template-columns:1fr}.sf img{width:100%;display:block;border-radius:6px;cursor:zoom-in}.sf figcaption{font-size:.9rem;color:var(--muted);margin-top:.3rem}.slot.fig{aspect-ratio:16/10;padding:1rem;text-align:center}@media(max-width:48rem){.srow{grid-template-columns:1fr;gap:1.2rem}.srow.rev .st,.srow.rev .sf{order:0}}</style>
+<style id="intro-css">
+#intro{display:none;position:fixed;inset:0;z-index:9999;background:#0B1620;overflow:hidden}
+.intro-on #intro{display:block;animation:introFail .4s 8s forwards}
+@keyframes introFail{to{opacity:0;visibility:hidden}}
+#intro svg{width:100%;height:100%;display:block}
+#intro .ln{fill:none;stroke:#fff;stroke-width:1.3;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:introDraw .7s ease-out forwards}
+#intro .sg{stroke:#D9482B}
+#intro .gl{stroke:rgba(255,255,255,.45);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;animation:introDraw .6s ease-out forwards}
+#intro .st{fill:none;stroke:rgba(255,255,255,.55);stroke-width:1.2;stroke-linecap:round}
+@keyframes introDraw{to{stroke-dashoffset:0}}
+#intro .skip{position:absolute;right:max(1.25rem,env(safe-area-inset-right));bottom:max(1.25rem,env(safe-area-inset-bottom));font:500 .95rem var(--display);letter-spacing:.04em;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:.55rem 1.1rem;cursor:pointer}
+#intro .skip:hover,#intro .skip:focus-visible{background:rgba(255,255,255,.22);outline:none}
+</style>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><svg id="introSvg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+<line id="introGround" class="gl" x1="150" y1="462" x2="850" y2="462" pathLength="1"/>
+<g id="introAc"><g id="introStreaks" opacity="0"><line class="st" x1="-110" y1="-9" x2="-230" y2="-9"/><line class="st" x1="-120" y1="0" x2="-290" y2="0"/><line class="st" x1="-110" y1="9" x2="-210" y2="9"/></g>
+<path class="ln" pathLength="1" style="animation-delay:0s" d="M -62,0 C -44,-9 18,-12 62,-3 C 72,-1 72,1 62,3 C 18,8 -44,7 -62,0 Z"/>
+<path class="ln" pathLength="1" style="animation-delay:.12s" d="M -36,-3 L -88,-16 L -88,16 L -36,4"/>
+<rect class="ln" pathLength="1" style="animation-delay:.2s" x="-6" y="-14" width="30" height="9" rx="2"/>
+<rect class="ln" pathLength="1" style="animation-delay:.28s" x="64" y="-6" width="16" height="12" rx="3"/>
+<circle class="ln" pathLength="1" style="animation-delay:.36s" cx="-93" cy="0" r="6"/>
+<g id="introProp"><line class="ln sg" pathLength="1" style="animation-delay:.44s" x1="84" y1="-30" x2="84" y2="30"/><circle class="ln sg" pathLength="1" style="animation-delay:.5s" cx="84" cy="0" r="2.2"/></g>
+</g></svg><button type="button" class="skip" id="introSkip" aria-hidden="false" aria-label="Skip intro animation">Skip &#9656;</button></div>
 <nav><div class="wrap"><a class="brand" href="#home">Darion Lian</a><a href="#home">Projects</a><a href="Darion-Lian-Resume.pdf" target="_blank" rel="noopener">Resume</a><a href="https://www.linkedin.com/in/darion-lian-594002342/" rel="noopener">LinkedIn</a><a href="mailto:darion.r.lian@gmail.com">Email</a></div></nav>
 <main id="app"></main>
 <div id="lb" hidden><button id="lbp" aria-label="Previous">‹</button><img id="lbi" alt=""><button id="lbn" aria-label="Next">›</button><button id="lbx" aria-label="Close">×</button><p id="lbc"></p></div>
@@ -232,6 +259,35 @@ document.addEventListener('securitypolicyviolation',function(e){var w=document.g
 function go(id){try{history.pushState(null,'','#'+id)}catch(e){try{location.hash=id}catch(_){}}render(id)}
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented)return;e.preventDefault();go(a.getAttribute('href').slice(1))});
 window.addEventListener('hashchange',function(){render()});window.addEventListener('popstate',function(){render()});render();
+</script>
+<script>
+(function(){
+var root=document.documentElement;if(!root.classList.contains('intro-on'))return;
+var el=document.getElementById('intro'),svg=document.getElementById('introSvg'),ac=document.getElementById('introAc'),prop=document.getElementById('introProp'),streaks=document.getElementById('introStreaks'),gl=document.getElementById('introGround'),skip=document.getElementById('introSkip');
+try{sessionStorage.setItem('introSeen','1')}catch(e){}
+var w=innerWidth||1000,h=innerHeight||600,vbW=Math.max(420,600*w/h),vbX=500-vbW/2;
+svg.setAttribute('viewBox',vbX+' 0 '+vbW+' 600');
+var gx=Math.min(350,vbW/2-40);gl.setAttribute('x1',500-gx);gl.setAttribute('x2',500+gx);
+var S=1.8,groundY=462,cy0=groundY-99*S,exitX=vbX+vbW+300,done=false,t0=null,fadeStart=null;
+function cl(x){return x<0?0:x>1?1:x}function eio(x){return x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2}
+function finish(){if(done)return;done=true;root.classList.remove('intro-on');if(el&&el.parentNode)el.parentNode.removeChild(el)}
+function quit(){if(done)return;var o=parseFloat(el.style.opacity||'1');el.style.transition='opacity .25s';el.style.opacity='0';setTimeout(finish,260);done2=true}
+var done2=false;
+skip.addEventListener('click',quit);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Enter'||e.key===' ')quit()});
+function frame(now){if(done||done2)return;if(t0===null)t0=now;var t=(now-t0)/1000;
+var cx=500,cy=cy0,ang=-90;
+var e1=eio(cl((t-.7)/.65));cy=cy0-100*e1;
+var e2=eio(cl((t-1.3)/.55));ang=-90+90*e2;cy-=30*e2;cx=500+60*e2;
+var u3=cl((t-1.8)/.75),e3=u3*u3;cx+= (exitX-560)*e3;cy-=30*e3;
+ac.setAttribute('transform','translate('+cx.toFixed(1)+' '+cy.toFixed(1)+') rotate('+ang.toFixed(1)+') scale('+S+')');
+streaks.setAttribute('opacity',(cl((t-1.85)/.25)*.9).toFixed(2));
+gl.style.opacity=(1-cl((t-.75)/.4)).toFixed(2);
+var sy=t>.6?(.2+.8*Math.abs(Math.sin(t*55))):1;prop.setAttribute('transform','translate(84 0) scale(1 '+sy.toFixed(2)+') translate(-84 0)');
+if(t>2.3){var f=1-cl((t-2.3)/.45);el.style.opacity=f.toFixed(2);if(f<=0){finish();return}}
+requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+})();
 </script>
 </body>
 </html>
