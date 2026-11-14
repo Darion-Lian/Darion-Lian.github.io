@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+(function(){try{var h=location.hash,home=(!h||h==='#'||h==='#home'),rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches,seen=false;try{seen=sessionStorage.getItem('introSeen')==='1'}catch(e){}
+if(home&&!rm&&!seen)document.documentElement.classList.add('intro-on')}catch(e){}})();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Darion Lian – Engineering Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet"></noscript>
+<style>
+:root{--bg:#F2F6F8;--surface:#E5EDF1;--ink:#0D1B26;--muted:#4A5E6C;--line:#C3D1DA;--accent:#0A5A8C;--signal:#D9482B;
+--display:'Bricolage Grotesque','Helvetica Neue',Arial,sans-serif;--body:'Source Serif 4',Georgia,serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1620;--surface:#122431;--ink:#E6EEF3;--muted:#9DB2C0;--line:#26404F;--accent:#5FB4E8;--signal:#FF7A59;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0B1620;--surface:#122431;--ink:#E6EEF3;--muted:#9DB2C0;--line:#26404F;--accent:#5FB4E8;--signal:#FF7A59;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.65 var(--body)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;letter-spacing:-.02em}
+nav{position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+nav .wrap{display:flex;gap:1.4rem;align-items:center;padding-top:.8rem;padding-bottom:.8rem;font:500 .95rem var(--display);overflow-x:auto;white-space:nowrap}
+nav a{color:var(--ink);text-decoration:none}nav a:hover{color:var(--accent)}nav .brand{margin-right:auto;font-weight:700}
+.intro{padding:4.5rem 0 2rem}
+.intro h1{font-size:clamp(3rem,10vw,6.5rem);font-weight:700}
+.intro p{max-width:36rem;font-size:1.25rem;margin:1.2rem 0 0}
+.intro .sub{font:500 1rem var(--display);color:var(--muted)}
+.cat{font-size:1.5rem;margin:3rem 0 1rem;padding-top:1rem;border-top:2px solid var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(17rem,1fr));gap:1.5rem}
+.card{display:block;color:inherit;text-decoration:none}
+.cover{aspect-ratio:4/3;border-radius:6px;background-size:cover;background-position:center;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:.8rem;transition:transform .2s}
+.card:hover .cover{transform:translateY(-3px)}
+.cover.ph{background-image:linear-gradient(135deg,hsl(var(--h) 45% 38%),hsl(calc(var(--h) + 40) 50% 22%))}
+.cover.ph::after{content:"Cover photo";font:500 .8rem var(--display);color:#fff;opacity:.7}
+.card h3{font-size:1.25rem;margin-top:.7rem}
+.card p{margin:.2rem 0 0;font-size:1rem;color:var(--muted);line-height:1.45}
+.card:hover h3{color:var(--accent)}
+.back{display:inline-block;margin:1.8rem 0 1rem;font:500 1rem var(--display)}
+.detail h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:700}
+.detail .meta{font:500 1rem var(--display);color:var(--muted);margin:.6rem 0 1.6rem}
+.cover.fit{background-size:contain;background-repeat:no-repeat;background-color:var(--surface)}
+.detail .cover{aspect-ratio:16/10;margin-bottom:2rem}
+.facts{display:flex;flex-wrap:wrap;gap:1.5rem 2.5rem;margin:0 0 2rem;padding:1.2rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);list-style:none}
+.facts b{display:block;font:700 1.6rem/1.1 var(--display);color:var(--accent)}.facts span{font:500 .85rem var(--display);color:var(--muted)}
+.detail .text{max-width:42rem}.detail .text h2{font-size:1.5rem;margin:2rem 0 .5rem}.detail .text li{margin:.3rem 0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:1rem;margin:2.5rem 0}
+.gallery figure{margin:0}.gallery img,.gallery video{width:100%;border-radius:6px;display:block;background:var(--surface)}
+.gallery figcaption{font-size:.95rem;color:var(--muted);margin-top:.3rem}
+.slot{aspect-ratio:4/3;border:2px dashed var(--line);border-radius:6px;display:grid;place-items:center;font:500 .95rem var(--display);color:var(--muted)}
+.slot.vid{grid-column:1/-1;aspect-ratio:16/7}
+.more{display:flex;justify-content:space-between;gap:1rem;margin:3rem 0;padding-top:1.2rem;border-top:1px solid var(--line);font:500 1.05rem var(--display)}
+footer{border-top:1px solid var(--line);margin-top:4rem}footer .wrap{padding-top:2.5rem;padding-bottom:3rem}
+footer h2{font-size:1.8rem;margin-bottom:.6rem}footer p{margin:.2rem 0}
+@media (prefers-reduced-motion:reduce){.cover{transition:none}}
+
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0B1620}
+.hbg,.dbg{position:absolute;inset:0;background-size:cover;background-position:center 60%}
+.hero::after,.dhero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,14,22,.35) 0%,rgba(6,14,22,.12) 35%,rgba(6,14,22,.88) 100%)}
+.hero #flow{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-top:6rem;padding-bottom:3rem}
+.hero .kick{font:500 .95rem var(--display);letter-spacing:.05em;text-transform:uppercase;opacity:.85;margin:0 0 .6rem}
+.hero h1{font-size:clamp(3.5rem,13vw,9rem);font-weight:700;line-height:.95}
+.hero .kick{font-size:clamp(1rem,2.4vw,1.35rem);line-height:1.5;margin-bottom:1rem}
+.hero .kick .prog{display:inline-block;margin-top:.15rem;font-weight:600}
+.hero .role{font:600 clamp(1.15rem,3vw,1.7rem) var(--display);margin:.9rem 0 0;opacity:.95}
+.hero .pitch{max-width:36rem;font-size:1.35rem;margin:1.2rem 0 2rem}
+.stats{display:flex;flex-wrap:wrap;gap:1.5rem 3rem;list-style:none;margin:0;padding:1.4rem 0 0;border-top:1px solid rgba(255,255,255,.35)}
+.stats b{display:block;font:700 2.6rem/1 var(--display)}.stats span{font:500 .9rem var(--display);opacity:.85}
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:1.8rem}
+.card.big .cover{aspect-ratio:16/10}.card.big h3{font-size:1.7rem}.card.big p{font-size:1.1rem}
+.cover{overflow:hidden}.ci{position:absolute;inset:0;background-size:cover;transition:transform .6s ease}.card:hover .ci{transform:scale(1.07)}.cover.fit .ci{background-size:contain;background-repeat:no-repeat}
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.js .rv.in{opacity:1;transform:none}
+.dhero{position:relative;min-height:64vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:#0B1620}
+.dhero.ph .dbg{background-image:linear-gradient(135deg,hsl(var(--h) 45% 38%),hsl(calc(var(--h) + 40) 50% 22%))}
+.dhero .wrap{position:relative;z-index:2;width:100%;padding-top:5rem;padding-bottom:2.5rem}
+.dhero .back{color:#fff;margin:0 0 1rem}.dhero h1{font-size:clamp(2.4rem,7vw,5rem)}.dhero .meta{color:rgba(255,255,255,.85);margin:.8rem 0 0}
+.fband{background:var(--ink);color:var(--bg)}.fl{display:flex;flex-wrap:wrap;gap:1.4rem 3.5rem;list-style:none;margin:0 auto;padding-top:1.8rem;padding-bottom:1.8rem}.fl b{display:block;font:700 2.4rem/1 var(--display);color:var(--signal)}.fl span{font:500 .9rem var(--display);opacity:.8}
+.gallery{display:block;column-width:19rem;column-gap:1rem}.gallery figure{break-inside:avoid;margin:0 0 1rem}.gallery img{cursor:zoom-in}
+.gallery .slot{margin-bottom:1rem}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(5,10,15,.94);display:flex;align-items:center;justify-content:center}#lb[hidden]{display:none}
+#lbi{max-width:92vw;max-height:82vh;border-radius:4px}
+#lb button{position:absolute;background:none;border:0;color:#fff;font:400 3rem/1 var(--display);cursor:pointer;padding:1rem}
+#lbp{left:.5rem}#lbn{right:.5rem}#lbx{top:.5rem;right:.8rem}#lbc{position:absolute;bottom:1rem;color:#fff;font:500 .95rem var(--display);margin:0;text-align:center;padding:0 1rem}
+@media(max-width:42rem){.feat{grid-template-columns:1fr}.hero{min-height:80vh}}
+.vwrap{aspect-ratio:16/9;margin:0 0 1rem;border-radius:8px;overflow:hidden;background:#000}.vwrap iframe{width:100%;height:100%;border:0;display:block}.vwrap.off{display:none}.vwrap.vert{aspect-ratio:9/16;max-width:21rem}.vlink.small{background:var(--surface);color:var(--ink);padding:.7rem 1rem}.vlink.small b{font-size:1rem}
+.vlink{display:block;margin:0 0 1.5rem;padding:1.1rem 1.3rem;border-radius:8px;background:var(--ink);color:var(--bg);text-decoration:none}.vlink b{display:block;font:700 1.3rem var(--display)}.vlink span{font:500 .95rem var(--display);opacity:.8}.vlink:hover{background:var(--accent)}
+.mission{border-left:4px solid var(--signal);background:var(--surface);padding:.9rem 1.2rem;border-radius:0 6px 6px 0;font-size:1.05rem;margin:0 0 1.5rem}.poster{margin:0 0 1rem}.poster img{width:100%;display:block;border-radius:6px;cursor:zoom-in;background:var(--surface)}.poster figcaption{font-size:.95rem;color:var(--muted);margin-top:.4rem}.srow{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;padding:2.5rem 0;border-top:1px solid var(--line)}.srow.rev .st{order:2}.srow.rev .sf{order:1}.srow h2{font-size:1.6rem;margin-bottom:.8rem}.st ul{padding-left:1.2rem;margin:0}.st li{margin:.5rem 0}.sf{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1rem}.sf figure{margin:0}
+.sf{grid-template-columns:1fr}.sf img{width:100%;display:block;border-radius:6px;cursor:zoom-in}.sf figcaption{font-size:.9rem;color:var(--muted);margin-top:.3rem}.slot.fig{aspect-ratio:16/10;padding:1rem;text-align:center}@media(max-width:48rem){.srow{grid-template-columns:1fr;gap:1.2rem}.srow.rev .st,.srow.rev .sf{order:0}}.ytw{margin:2.5rem 0 0}.ytw h2{margin-bottom:1rem}.ytf{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000}.ytf iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.stories{padding-top:1.2rem}
+.story{align-items:center}
+.story:first-child{border-top:0}
+.story .sf{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;align-items:center}
+.story .sf.n1{grid-template-columns:1fr}
+.story .sf.n1 img{max-height:30rem;object-fit:contain;background:var(--surface)}
+.story .sf.n3 figure:first-child{grid-column:1/-1}
+.story .sf figure{margin:0}
+.story .sf.n2 img,.story .sf.n3 figure:not(:first-child) img,.story .sf.n4 img{max-height:15rem;object-fit:contain;background:var(--surface)}
+.story.stack{grid-template-columns:1fr}.story.stack .sf{max-width:46rem}
+.story.long .sf{align-self:start;position:sticky;top:5.5rem}
+.story .sf.sm img{max-height:18rem}
+@media(max-width:48rem){.story.long .sf{position:static}}
+.story .sf.n2.col{grid-template-columns:1fr}.story .sf.n2.col img{max-height:17rem}
+.st .mission{border-left:4px solid var(--signal);background:var(--surface);padding:.9rem 1.2rem;border-radius:0 6px 6px 0;font-size:1.05rem;margin:0 0 1.5rem}
+.st h2:first-child{margin-top:0}
+.st p{margin:.6rem 0}
+</style>
+<style id="intro-css">
+#intro{display:none;position:fixed;inset:0;z-index:9999;overflow:hidden;pointer-events:none}
+#introBg{position:absolute;inset:0;background:#0B1620;will-change:mask-image}
+.intro-on #intro{display:block;animation:introFail .4s 8s forwards}
+@keyframes introFail{to{opacity:0;visibility:hidden}}
+#introFx{position:absolute;inset:0;width:100%;height:100%;display:block}
+#introPlane{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;opacity:0}
+#introPlane img{display:block;user-select:none;-webkit-user-drag:none;pointer-events:none}
+#introPlane svg{position:absolute;left:0;top:0;overflow:visible;pointer-events:none}
+#intro .skip{position:absolute;right:max(1.25rem,env(safe-area-inset-right));bottom:max(1.25rem,env(safe-area-inset-bottom));font:500 .95rem var(--display);letter-spacing:.04em;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:.55rem 1.1rem;cursor:pointer;z-index:2;pointer-events:auto}
+#intro .skip:hover,#intro .skip:focus-visible{background:rgba(255,255,255,.22);outline:none}
+</style>
+</head>
+<body>
+<div id="intro" aria-hidden="true"><div id="introBg"></div><canvas id="introFx"></canvas><div id="introPlane" style="width:900px;height:806px"><img id="introImg" width="900" height="806" alt="" src="images/plane.webp"><svg id="introProps" width="900" height="806" viewBox="0 0 900 806"></svg></div><button type="button" class="skip" id="introSkip" aria-label="Skip intro animation">Skip &#9656;</button></div>
+<nav><div class="wrap"><a class="brand" href="#home">Darion Lian</a><a href="#home">Projects</a><a href="Darion-Lian-Resume.pdf" target="_blank" rel="noopener">Resume</a><a href="https://www.linkedin.com/in/darion-lian-594002342/" rel="noopener">LinkedIn</a><a href="mailto:darion.r.lian@gmail.com">Email</a></div></nav>
+<main id="app"></main>
+<div id="lb" hidden><button id="lbp" aria-label="Previous">‹</button><img id="lbi" alt=""><button id="lbn" aria-label="Next">›</button><button id="lbx" aria-label="Close">×</button><p id="lbc"></p></div>
+<footer><div class="wrap"><h2>Get in touch</h2><p>I’m looking for engineering internships and research roles in robotics, aerospace, and fluids.</p><p><a href="mailto:darion.r.lian@gmail.com">darion.r.lian@gmail.com</a> · <a href="https://www.linkedin.com/in/darion-lian-594002342/" rel="noopener">LinkedIn</a> · <a href="Darion-Lian-Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a></p></div></footer>
+
+<script>
+/* To add media later: put items in a project's `media` list, e.g.
+   {t:"img", src:"data:image/jpeg;base64,...", cap:"Final assembly"} or {t:"video", src:"...", cap:"Flight test"}
+   and set `cover` to an image src to replace the colored placeholder. */
+var CATS=["Aerospace","Research","Projects","FIRST Robotics"];
+var P=[
+{id:"advanced-class",cat:0,h:205,title:"Advanced Class VTOL Tailsitter",sub:"Autonomous hybrid VTOL for SAE Aero Advanced Class",meta:"Penn Aerial Robotics · Advanced Class Co-Lead · 2026",
+ facts:[["1st place","Design, SAE Aero West"],["\u221220%","weight, 2026 to 2027"],["+15%","cruise speed, 2026 to 2027"],["+32%","theoretical score increase"]],
+ body:"<p class='mission'><b>The mission:</b> SAE Aero Design Advanced Class (2026). Fly an aircraft that autonomously delivers a payload to a designated landing zone and then retrieves it. The more of the mission flown autonomously, the more points a team earns, and transitioning between flight modes is part of the challenge.</p><div class='vwrap'><iframe src='https://www.youtube-nocookie.com/embed/Xp5qabT8cr8' title='Project video' loading='lazy' allow='accelerometer; encrypted-media; picture-in-picture; fullscreen' allowfullscreen></iframe></div><a class='vlink small' href='https://youtu.be/Xp5qabT8cr8' target='_blank' rel='noopener'><b>▶ Open on YouTube</b><span>If the player doesn’t load, watch it there.</span></a><p>A fully autonomous tailsitter that takes off vertically, flies as a fixed wing, and transitions between the two modes on its own. I help lead the design, contribute to structures and CAD, and run CAD, FEA, CFD, and flight testing.</p><h2>Rover payload</h2><p>The aircraft carries an autonomous tracked rover that I also lead. See <a href=\"#advanced-payload\">the payload project</a>.</p>",
+ sections:[{"h":"2026 aircraft: aerodynamic design","t":"<ul><li><b>Goal:</b> minimize wing area while keeping stable flight characteristics.</li><li><b>Method:</b> optimized the planform in XFLR5 through a parametric analysis of wingspan, chord length, taper ratio, and twist.</li></ul>","figs":[["a26x","XFLR5 analysis of the 2026 planform"]]},{"h":"2026 aircraft: mechanical design","t":"<ul><li><b>Ownership:</b> owned the CAD of the aircraft.</li><li><b>Iteration:</b> rapidly revised the design based on structural component-level testing and flight tests.</li></ul>","figs":[["a26c","SolidWorks CAD of the 2026 aircraft"]]},{"h":"Flight testing","t":"<ul><li><b>Vehicle electronic integration:</b> prepared vehicles for flight tests by integrating the electronic components onto the airframe: flight controller, motors, ESCs, servos, and more.</li><li><b>Flight testing:</b> planned clear flight test objectives, set up missions in QGroundControl, and configured the vehicles.</li><li><b>Failure analysis:</b> analyzed failures using PX4 logs and PID-tuned parameters. In the pitch-rate log shown here, the vehicle oscillated in VTOL mode, so I increased D and decreased P.</li></ul>","figs":[["ftphoto","Tailsitter in flight test"],["ftplot","PX4 log: pitch angular rate in VTOL mode"]]},{"h":"2027 aircraft: smaller and lighter","t":"<ul><li>Redesigned for the 2027 competition year.</li><li><b>Weight:</b> cut by 20% from the 2026 aircraft, along with a major reduction in overall size.</li><li><b>Speed:</b> cruise speed up 15%.</li><li><b>Scoring:</b> together, these changes theoretically increase our competition score by 32%.</li></ul>","figs":[["a27c","SolidWorks CAD of the 2027 aircraft"],["a2627","2026 and 2027 aircraft compared"],["a27","The 2027 Advanced Class aircraft"]]}],
+ tags:"SolidWorks · XFLR5 · ANSYS FEA · CFD · ESP32 · Computer vision"},
+{id:"advanced-payload",cat:0,h:165,title:"Advanced Class Rover Payload",sub:"Autonomous tracked rover that loads itself into the VTOL",meta:"Penn Aerial Robotics · Advanced Class Co-Lead · 2026",
+ facts:[["ESP32","motor control"],["IMU","heading estimation"],["AprilTag","vision navigation"]],
+ body:"<p class='mission'><b>The mission:</b> SAE Aero Design Advanced Class (2026). The mission requires the aircraft to deliver a payload to a designated landing zone and retrieve it, with extra points for doing it autonomously. This rover is the payload for that mission.</p><div class='vwrap vert'><iframe src='https://www.youtube-nocookie.com/embed/AspzHtavQak' title='Project video' loading='lazy' allow='accelerometer; encrypted-media; picture-in-picture; fullscreen' allowfullscreen></iframe></div><a class='vlink small' href='https://youtu.be/AspzHtavQak' target='_blank' rel='noopener'><b>▶ Open on YouTube</b><span>If the player doesn’t load, watch it there.</span></a><p>A tracked rover payload for our SAE Aero Advanced Class VTOL aircraft. It drives to the aircraft on its own, attaches, and hoists itself aboard using a self-contained climbing system. I lead its development.</p><h2>Controls and electronics</h2><p>The rover combines ESP32-based motor controls, wheel encoders, and an IMU for heading estimation, with a Wi-Fi dashboard for testing. Planned capabilities include AprilTag-based navigation and a climbing mechanism for self-loading into the aircraft.</p>",
+ sections:[{"h":"Designing for center of gravity","t":"<ul><li><b>Goal:</b> keep the rover's center of gravity as close as possible to where the aircraft's CG needs to be.</li><li><b>Approach:</b> I have been iterating the rover CAD to make the whole vehicle flatter, which brings the payload CG closer to the aircraft CG along the vertical (z) axis.</li><li><b>Payoff:</b> a payload CG near the target means the aircraft can fly at the CG from the aerodynamic analysis, which keeps stability and trim close to the optimum without ballast or compromises elsewhere.</li></ul>","figs":[["rcad","SolidWorks CAD of the rover payload"]]}],
+ tags:"SolidWorks · Mechanical design · Embedded controls · Electronics integration · Computer vision"},
+{id:"micro-class",cat:0,h:190,title:"SAE Aero Micro Class STOL Aircraft",sub:"SAE Aero Design Micro Class: high-lift lightweight STOL aircraft, 3rd in the U.S.",meta:"Penn Aerial Robotics \u00b7 SAE Aero Micro Class Lead \u00b7 2026",
+ facts:[["3rd in U.S.","SAE Aero Design West"],["1.07 m","wingspan"],["24.95 ft","takeoff distance"],["4.7 lb","liquid payload capacity"],["FOS 1.54","wing spar"]],
+ body:"<p class='mission'><b>The mission:</b> SAE Aero Design Micro Class (2026). Build a very small radio-controlled aircraft that takes off in a short distance while carrying as much liquid (water) payload as possible. The score rewards a small wingspan and a low aircraft weight.</p><div class='vwrap'><iframe src='https://www.youtube-nocookie.com/embed/4XK94FgUuoc' title='Project video' loading='lazy' allow='accelerometer; encrypted-media; picture-in-picture; fullscreen' allowfullscreen></iframe></div><a class='vlink small' href='https://youtu.be/4XK94FgUuoc' target='_blank' rel='noopener'><b>▶ Open on YouTube</b><span>If the player doesn’t load, watch it there.</span></a><p>As the Penn Aerial Robotics Micro Class Lead, I led the design, manufacturing, and iterative flight testing of a 1.07 m wingspan short-takeoff aircraft for the 2026 SAE Aero Design Micro Class. The competition rewarded high payload capacity, low empty mass, short takeoff distance, and reduced wingspan, which made aerodynamics and structure a tightly coupled optimization problem. Our final aircraft placed 3rd in the U.S. at SAE Aero Design West.</p>",
+ sections:[{"h": "Aircraft at a glance", "t": "<ul><li>3.5 ft (1.07 m) wingspan, aspect ratio 4.0, in a blown-lift STOL configuration.</li><li>2 lb empty weight and 6.7 lb loaded, carrying 4.7 lb of liquid water.</li><li>19 mph takeoff speed and about 25 ft takeoff distance.</li><li><b>Propulsion:</b> two Skywalker 2316 1250 kV motors turning 14 in propellers, on a 4S 1050 mAh 95C LiPo.</li><li><b>Controls:</b> four MKS HV69 servos and two Predator 40 A ESCs, with an isolated BEC.</li><li><b>Airfoils:</b> a custom modified S1223 on the wing and an SD8020 on the tail.</li><li>Precision laser-cut balsa fuselage, wing, and tail, with tail-dragger landing gear.</li><li>Competed at SAE Aero Design West in Fort Worth, TX, April 17\u201319, 2026.</li></ul>", "figs": [["ms", "Tempest specification sheet"]]}, {"h": "Aerodynamic design and airfoil selection", "t": "<ul><li><b>Design objective:</b> maximum lift over cruise efficiency and speed, to match the short-takeoff scoring constraints.</li><li><b>Airfoil:</b> I started from the Selig S1223, a high-lift baseline from the Airfoil Tools repository, and iteratively modified its geometry in XFOIL to maximize Cl.</li><li><b>Validation:</b> in XFLR5 I evaluated Cl, Cd, Cl/Cd, lift distributions, and Cm to assess stability, aerodynamic efficiency, and the range of operable angles of attack. That data fed a custom takeoff and performance model that gave a good final configuration.</li><li><b>Final configuration:</b> 1.07 m wingspan, AR 4.0, twin 14 in propellers, and a 24.95 ft takeoff.</li></ul>", "figs": [["ma", "Final airfoil (iteration 3) profile"], ["mx", "XFLR5 model with the spanwise lift distribution"]]}, {"h": "Structural design and material selection", "t": "<ul><li><b>Load definition:</b> I extracted XFLR5 spanwise lift data and used a 1.5 g design condition, giving a 64.75 N wing load and a 7.71 N\u00b7m bending moment.</li><li><b>FEA optimization:</b> I began with the simplest root-fixed beam spar under aerodynamic loading, then iteratively sized cutouts and added flanges in the high-bending regions near the root. The final spar has a factor of safety of 1.54.</li><li><b>Materials:</b> lightweight balsa for the wing structure, plywood for concentrated motor loads, and carbon fiber for the extended tail boom, all validated through physical component testing.</li></ul>", "figs": [["mf1", "FEA stress plot of the wing spar"], ["mt2", "Spar load test with hanging weights"], ["mf2", "FEA stress plot of a wing rib"], ["mt1", "Rib load test with a hanging weight"]]}, {"h": "CAD, manufacturing, and system integration", "t": "<ul><li><b>CAD ownership:</b> I owned the full-aircraft SolidWorks assembly and component integration.</li><li><b>Lightweight fabrication:</b> laser-cut balsa and CA glue for low-mass construction.</li><li><b>Self-jigging joints:</b> tab-and-slot rib and spar joints for faster, aligned assembly.</li><li><b>Impact durability:</b> carbon-fiber landing gear to absorb landing shocks at low weight.</li></ul>", "figs": [["mc", "SolidWorks model of Tempest"], ["mm", "Laser-cut balsa structure"]]}],
+ tags:"SolidWorks \u00b7 XFLR5 \u00b7 XFOIL \u00b7 ANSYS FEA \u00b7 Structural testing \u00b7 Laser cutting \u00b7 Machining"},
+{id:"dronehacks",cat:0,h:60,title:"Stanford DroneHacks 2026",sub:"A camera-only autonomous drone: a simulator built overnight, a first-of-its-kind path-following flight, and a mechanical root cause found in the flight logs",meta:"Stanford University \u00b7 Horizons Drone Hacks \u00b7 Team Blue Ravens \u00b7 Nov 2026",
+ facts:[["1st","team to follow a path on the real drone"],["61.8 s","simulated course time after overnight tuning"],["1.4\u00d7","front-to-rear thrust from a 1.9 cm CG offset"],["0","crashes"]],
+ body:"<p class='mission'><b>The challenge:</b> Stanford DroneHacks 2026 (Horizons Drone Hacks). Teams program a small camera-only drone to fly an obstacle course on its own, through a tunnel and a window to a landing pad, with no GPS and no human input. Our team, the Blue Ravens, had five students from different universities.</p><div class='vwrap vert'><iframe src='https://www.youtube-nocookie.com/embed/iYXT6D59V5o' title='Project video' loading='lazy' allow='accelerometer; encrypted-media; picture-in-picture; fullscreen' allowfullscreen></iframe></div><a class='vlink small' href='https://youtube.com/shorts/iYXT6D59V5o' target='_blank' rel='noopener'><b>\u25b6 Open on YouTube</b><span>If the player doesn\u2019t load, watch it there.</span></a><!--figs:dhfly|The drone on the real course, hover test in the netted arena--><p>I specialized in post-flight review and failure analysis: logging every run, reading PX4 ULogs, ROS bags, and Foxglove replays to find root causes, and troubleshooting the Pixhawk in QGroundControl. I also did the CAD of the drone and of the course map, and tracked down mechanical failures.</p><h2>The drone</h2><!--figs:dhcad|CAD of the drone: frame, motors, electronics stack, forward stereo camera, and battery--><p>A compact quadrotor carrying a Luxonis OAK-D S2 stereo camera at the front, a Jetson onboard computer, and a Pixhawk running PX4, with the battery mounted on top of the electronics stack. The camera was the only sensor we had for navigation.</p><h2>The system</h2><!--figs:dharch|System architecture: one camera in, flight commands out--><p>The organizers supplied the flight interface, a starter project, and a grading simulator. On top of that, NVIDIA Isaac ROS cuVSLAM turned the camera feed into visual-inertial odometry, an obstacle grid and planner chose velocity commands, and PX4 flew the vehicle. We wrote the planner and safety logic in Python and ROS 2.</p><h2>Building the simulator</h2><!--figs:dhsim|Our Gazebo-based simulator replaying a run;dhmap|Planned waypoints and spline route on the course map--><p>We started the simulator around 11:52 PM and finished it at 4:10 AM on Nov 7, one of the first teams to do so. Smoother spline turns gave better camera parallax, and we optimized the course time to about 61.8 seconds overnight. Because it ran unattended, we used it to test several ideas at once (MPPI, signed distance fields, a navigation reference, and wall seeking) and to collect ROS bag data automatically.</p><h2>Testing and post-flight review</h2><!--figs:dhfox|Foxglove replay of a run: depth, camera, and route in one view;dhfox2|Foxglove post-flight review: route, height, uncertainty, and flight-mode charts on one clock--><p>We tested in steps from cheap to risky: unit tests, simulation through the real flight interface, A/B runs between builds, hand-carried walkthroughs, tethered hovers, and then real flight. Each step caught a class of bug before it could cost a crash. The simulator alone exposed six real problems, including a vision bridge that withheld useful data, a corner that spun the drone in place, and a landing that never disarmed.</p><p>Every sim run and real flight wrote a ROS bag. In Foxglove we replayed each one with the planned path against the estimate and the sim ground truth, height, uncertainty, and flight-mode timelines on one clock, and the live depth and camera feeds, so we could see what the drone saw. PX4 ULogs then gave us the root causes.</p><h2>Our first test flight</h2><!--figs:dhpath|Real flight: planned route versus the path the drone flew;dhlean|Every take-off drifted back-left, so we lean against it--><p>Our first test flight was our only one before the recorded run, and we became the first team to follow a path. The Foxglove replay showed the route completed, but the drone flew 0.22 m left of its path, drifted 0.38 m back-left during the 3.8 s climb, and reached only about 15% of the commanded velocity.</p><h2>Root cause: a mechanical problem</h2><!--figs:dhmotor|Front motors carry 1.4\u00d7 the rear thrust, unchanged at release;dhpitch|1.5\u00b0 nose-up at lift-off that the controller did not ask for--><p>The flight log pointed at the airframe, not the software. The camera sat 1.9 cm forward of the center of gravity, so the front propellers carried 1.4 times the thrust of the rear ones. At release the drone pitched 1.5\u00b0 nose-up with no change in motor commands, tilting thrust backward and drifting about 0.2 m until PX4 recovered roughly 2 seconds later. It is the same kind of center-of-gravity problem I work on for the Advanced Class aircraft. We countered it by leaning the take-off against the drift.</p><h2>Latency was also costing us</h2><!--figs:dhvision|Median vision age at PX4 for each depth configuration--><p>During a field recording, the age of vision data at PX4 climbed from 75 ms to 200\u2013400 ms, past PX4\u2019s 200 ms cutoff. A load test isolated the cause: any process subscribing to the camera images, including our own Jetson depth node, pushed it over. The stereo images alone use about 118 of 143 MB/s of USB bandwidth. Switching to the camera\u2019s on-board depth brought vision age back to about 25 ms.</p><h2>One problem, four solutions</h2><!--figs:dhmppi|BlueRaven MPPI: what we added beyond textbook MPPI;dhwall|Failure case: a blank wall made vision tracking drift--><p>With two theories about the core issue (take-off or route), we split into four approaches: a closed-loop return to the take-off point, a forward lean against the drift, a signed-distance-function planner, and WallSeek, which flies straight lines parallel to walls and stops on depth at a 0.8 m standoff. A sampling-based MPPI planner became our main flight program, with a safety shield, a push estimator, latency compensation, and a virtual net fence that treats the arena\u2019s invisible nets as walls. In simulation, WallSeek\u2019s hold returned the drone to within 0.05\u20130.06 m of its take-off point while a position-integral hold orbited, but the real drone responded faster than the sim, so we judged each hold on the real drone.</p><h2>The result</h2><p>Our first scored run (MPPI, full course) earned 10 raw points. The logs ruled out a yaw offset and showed that the run started 2.8 minutes after boot, when only 12% of depth frames were used, so the drone went stop-and-go and landed. We fixed that timing bug. On the second run the depth data and the whole pipeline were healthy, and the remaining drift came from cuVSLAM\u2019s own estimate, the limit of a camera-only drone. In simulation with the real window, the full course finished 2 out of 2 times, landing 0.10\u20130.12 m from the pad center.</p><p>Two hours before our recorded run we had done zero tests, so our test run was our recorded run. We adapted, changed course, and never crashed, which was the real success. Thank you to the DroneHacks organizers, sponsors, and technical mentors.</p>",
+ tags:"PX4 \u00b7 ULog analysis \u00b7 ROS 2 \u00b7 ROS bags \u00b7 Foxglove \u00b7 QGroundControl \u00b7 Pixhawk \u00b7 CAD \u00b7 Gazebo \u00b7 NVIDIA Isaac ROS cuVSLAM \u00b7 Luxonis OAK-D \u00b7 Python"},
+{id:"iarc-drone",cat:0,h:195,title:"IARC Autonomous Drone Swarm",sub:"Quadrotors for multi-UAV hazard mapping and safe-route planning",meta:"Penn Aerial Robotics \u00b7 IARC Mission 10 Mechanical Lead",
+ facts:[["100 m","mapping field"],["Carbon fiber","quadrotor frame"]],
+ body:"<p class='mission'><b>The mission:</b> International Aerial Robotics Competition, Mission 10 (\u201cEscape Through the Minefield\u201d). Use a swarm of four autonomous drones, each under 1 lb (453 g), to scout a 100 m minefield, map a safe path, and guide a person across before time runs out.</p><p>Penn Aerial Robotics\u2019 entry for the International Aerial Robotics Competition (IARC) Mission 10: a swarm of autonomous quadrotors that map hazards and plan safe routes across a 100 m field. I lead the mechanical design of the drones.</p><h2>What I did</h2><ul><li>Led quadrotor mechanical design, CAD, and electromechanical wiring.</li><li>Designed custom 3D-printed mounts for the electronics, including the GPS and flight stack.</li><li>Ran FEA on the carbon-fiber quadrotor frame.</li><li>Developing the hardware for autonomous multi-UAV hazard mapping and route planning.</li></ul>",
+ tags:"SolidWorks \u00b7 FEA \u00b7 3D printing \u00b7 Electromechanical wiring"},
+{id:"regular-class",cat:0,h:225,title:"SAE Aero Regular Class Aircraft",sub:"SAE Aero Design Regular Class: 10 ft wingspan multi-engine cargo plane",meta:"Penn Aerial Robotics \u00b7 SAE Aero Regular Class \u00b7 2026",
+ facts:[["3rd","Presentation, SAE Aero West"],["10 ft","wingspan"],["55 lb","maximum weight"],["100 ft","takeoff at max weight"]],
+ body:"<p class='mission'><b>The mission:</b> SAE Aero Design Regular Class (2026). Fly a multi-engine cargo aircraft that lifts as much payload as possible within a 10 ft wingspan limit. Payload increases after every successful flight, and with the power limiter removed, teams trade off takeoff current draw against battery endurance.</p><p>Penn Aerial Robotics\u2019 Regular Class entry is a high-lift aircraft with a 10 ft wingspan, designed for a maximum weight of 55 lb. At that weight it takes off in about 100 ft. The team placed 3rd in the Regular Class presentation.</p><h2>My role: tail design and CAD</h2><p>I was put in charge of the tail, from the first sizing calculations through the finished CAD model. The tail has to keep a 55 lb, multi-engine aircraft controllable through takeoff, climb, and landing, so it had to be sized and checked carefully.</p><ul><li><b>Sizing by hand:</b> I did the hand calculations for the elevator area the aircraft needs and for how far the tail sits from the center of gravity. The two are linked: a tail farther from the CG has more leverage, so the same control authority needs less area.</li><li><b>Aerodynamic analysis:</b> I ran an aerodynamic analysis of the tail to confirm that the sized surfaces gave the control and stability the aircraft needed.</li><li><b>Structural analysis:</b> I performed structural analysis on the tail, so it could carry its flight loads without adding more weight than necessary.</li><li><b>CAD ownership:</b> I modeled the tail in CAD and kept the model current as the sizing and analysis results came in.</li></ul>",tags:"Hand calculations · CAD · Aerodynamic analysis · Structural analysis"},
+{id:"active-grid",cat:1,h:200,title:"AWARE Lab: Water Channel Active Grid",sub:"Programmable turbulence for the AWARE Lab water channel",meta:"AWARE Lab, Penn \u00b7 Funded Undergraduate Researcher \u00b7 2026",
+ facts:[["25","winglets on 5 shafts"],["20 ft","recirculating water channel"],["3.1 N\u00b7m","closed-loop steppers"],["Published","APS DFD 2026 abstract"],["Presented","Frontiers of Energy Research"]],
+ body:"<div class='vwrap'><iframe src='https://www.youtube-nocookie.com/embed/JKvdk_AGa38' title='Project video' loading='lazy' allow='accelerometer; encrypted-media; picture-in-picture; fullscreen' allowfullscreen></iframe></div><a class='vlink small' href='https://youtu.be/JKvdk_AGa38' target='_blank' rel='noopener'><b>▶ Open on YouTube</b><span>If the player doesn’t load, watch it there.</span></a><p>I designed and built a removable active grid for the AWARE Lab\u2019s 20 ft recirculating water channel at Penn, working with Leo Feng and Christopher Bianco in research led by Professor Nathaniel Wei and funded through VIPER. The grid is 5 \u00d7 5: 25 winglets on 5 independently controlled shafts, driven by closed-loop stepper motors so the flow can be forced in programmable ways.</p><h2>Why a water channel and an active grid</h2><ul><li>Controlled laboratory turbulence lets researchers study fluid forces, mixing, and wake interactions.</li><li>Passive grids make turbulence through fixed geometry. An active grid adds programmable winglet motion, so speed, angular range, timing, and panel geometry can be varied to mimic atmospheric-like fluctuations, shear, and downstream interactions.</li><li>Water\u2019s lower kinematic viscosity gives comparable Reynolds numbers at lower speeds than air, and the channel gives optical access for flow measurements.</li></ul><h2>Research objective</h2><p>Design, build, and test the grid, then use it to study how grid geometry and motion shape the downstream flow. The long-term goal is to characterize turbulence intensity, length scales, homogeneity, and isotropy.</p><h2>Mechanical design</h2><ul><li>I defined the requirements, reviewed published active and passive grid designs, and developed sketches into SolidWorks CAD.</li><li>An aluminum T-slot frame holds five stainless-steel shafts with 3D-printed winglets, with adjustable brackets and replaceable panels for alignment and reconfiguration.</li><li>Hydrodynamic loading calculations drove the shaft selection, to limit bending and keep the geometry consistent.</li><li>The assembly is removable, so it fits the existing channel without blocking downstream access to the test section.</li><li>The motors stay above the waterline and drive the submerged shafts mechanically. Water-resistant materials and protected connections support long experiments.</li></ul><h2>Control hardware and motion protocols</h2><ul><li>Five NEMA 23 closed-loop stepper motors each drive one shaft, with 3.1 N\u00b7m holding torque and 14-bit encoder feedback. The drivers run from a DC supply of up to 50 V at 1,600 command pulses per revolution.</li><li>An Arduino Mega sends step, direction, and enable signals and coordinates shaft position, rotation rate, and timing. Each channel is independent, so protocols change in software without touching the hardware.</li></ul><ul><li><b>Baseline and fixed grid:</b> compare the empty channel to a grid held at a documented angle, to separate background flow from passive wakes.</li><li><b>Independent random motion:</b> bounded target angles and dwell times assigned separately to each motor.</li><li><b>Correlated random motion:</b> random commands with a chosen memory time, compared at similar angle distributions and flow speeds.</li><li><b>Periodic motion:</b> sinusoidal commands to check timing and response, as a route to repeatable gusts.</li></ul><h2>Flow measurements</h2><ul><li>Laser particle image velocimetry (PIV) and three-dimensional Lagrangian particle tracking (LPT), using near-neutrally buoyant polyamide tracer particles.</li><li>PIV compares particle patterns between successive images of a laser-lit plane to estimate velocity vectors. LPT reconstructs individual 3D particle trajectories from synchronized, calibrated camera views.</li><li>Quantitative particle measurements characterize turbulence statistics and how the turbulence decays downstream.</li></ul><h2>Flow visualization</h2><p>Fluorescent dye under UV light gives a qualitative view of the wakes and mixing behind the moving winglets. It highlights downstream flow structures, wake deformation, flow separation, and possible vortex shedding.</p><h2>Future directions</h2><ul><li>Longer PIV and LPT recordings to quantify turbulence intensity, velocity spectra, and flow uniformity.</li><li>Repeated trials to see how grid-motion protocols affect the flow and to establish repeatability.</li></ul><h2>Presentation and publication</h2><p>I presented this work at the 6th annual Frontiers of Energy Research poster session and published an abstract on programmable turbulence (APS Division of Fluid Dynamics, 2026). The research was supported by the Vagelos Integrated Program in Energy Research (VIPER).</p>",
+ tags:"SolidWorks \u00b7 C++ \u00b7 Arduino \u00b7 Stepper control \u00b7 PIV / LPT \u00b7 Flow visualization"},
+{id:"echo-pro",cat:2,h:150,title:"Echo Pro Mobility Cane",sub:"An AI-guided cane that detects obstacles and steers the user around them",meta:"MakeMIT \u00d7 Harvard Hardware Hackathon \u00b7 2026",
+ facts:[["3 awards","Viam, deFlex, Communication"],["On-device","ML inference, no cloud"],["5 s","calibrated avoidance maneuver"]],
+ body:"<p>Echo Pro is a self-guided mobility cane built on a Raspberry Pi. A forward-facing camera feeds a machine-learning model that detects people and objects, and a motorized wheel at the base of the cane steers the user around them while they keep walking forward.</p><div class='vwrap'><iframe src='https://www.youtube-nocookie.com/embed/6VvcRcvRXNA' title='Project video' loading='lazy' allow='accelerometer; encrypted-media; picture-in-picture; fullscreen' allowfullscreen></iframe></div><a class='vlink small' href='https://youtu.be/6VvcRcvRXNA' target='_blank' rel='noopener'><b>▶ Open on YouTube</b><span>If the player doesn’t load, watch it there.</span></a><h2>The problem</h2><p>The white cane has changed little in decades. It is a passive, contact-based tool, so it can tell a user that something is in the way but not how to get around it. After watching a blind person circle the same obstacle with no guidance, we named the gap: detection without guidance. Age-related vision loss is a growing public health concern, so we set out to close that gap.</p><h2>How it works</h2><ul><li><b>Detect:</b> live video from the camera runs through a Viam machine-learning model that detects humans and objects.</li><li><b>Decide:</b> the system reads each detection's bounding-box size, position, and orientation to compute a directional avoidance vector.</li><li><b>Steer:</b> the motorized wheel turns to that angle, guiding the user around the obstacle.</li><li><b>Recover:</b> after a calibrated five-second avoidance maneuver, the wheel re-centers to restore the original path.</li></ul><p>All inference runs on the device itself, with no cloud processing, which keeps the user's camera data private.</p><h2>My role</h2><p>I worked on brainstorming and feature development, built the software backend on Viam, and handled troubleshooting, testing, and fine-tuning of the hardware and software together. The team was split into mechanical and electronics groups, and the software was the hardest part for a mechanically-minded team: setting up and programming the Raspberry Pi, getting the model working with help from Viam staff, and writing the Python that drives the wheel for obstacle avoidance and path correction.</p><h2>What's next</h2><ul><li>Move from reactive avoidance to proactive navigation with turn-by-turn guidance.</li><li>Broaden the training dataset for different environments.</li><li>Add ultrasonic and LiDAR sensors for better spatial awareness.</li><li>Add haptic feedback, then run structured pilot tests with visually impaired users.</li></ul><p>The team won three awards at MakeMIT \u00d7 Harvard 2026: Best Use of Viam, Best Use of deFlex (Transcend), and Communication. <a href=\"https://devpost.com/software/ai-detection-and-steering-crane\" target=\"_blank\" rel=\"noopener\">Read the Devpost write-up</a>.</p>",
+ tags:"Python · Viam · Raspberry Pi · Onshape · Edge AI · Hardware integration"},
+{id:"sung-lab",cat:1,h:175,title:"Sung Lab: Impedance Pump Research",sub:"Impedance pumps for soft robots and blood-flow support",meta:"Sung Robotics Lab, Penn · Funded Undergraduate Researcher · 2025–2026",
+ facts:[["10+","strain conditions tested"]],
+ body:"<p>I designed an underwater single-tube robot that steers and propels itself with a Liebau impedance pump, and experimentally measured how 10+ different strains on the tube change flow in closed-loop Liebau-driven systems.</p><h2>Why it matters: a healthcare application</h2><p>When the heart cannot move enough blood, or the blood is not carrying enough oxygen, clinicians can place a pump in the circulation to artificially supplement blood flow rate or oxygenation. Impedance pumps can do that job. They drive fluid through a flexible tube by periodically squeezing it at an off-center spot, with no impeller or rotating parts in the flow path.</p><h2>Testing it like an artery</h2><p>To study that use, I run the pump in a closed-loop flow setup. Different valves in the loop set the resistance of each path, standing in for the pathways and resistances of the arteries the pump would sit in. On this bench model I can change one thing at a time, including how much the tube is strained, and measure how the flow rate responds. Across 10+ strain conditions, that shows how to tune a pump to hit a target flow.</p><h2>Related builds</h2><ul><li><b>Liebau swimming robot:</b> a swimmer driven by an impedance pump.</li><li><b>Iris impedance pump:</b> an impedance pump with radial actuation.</li><li><b>Strain tests:</b> how tube strain affects flow rate.</li></ul>",
+ tags:"Soft robotics · Experimental fluids · Biomedical flow · Prototyping"},
+{id:"liu-lab",cat:1,h:150,title:"Liu Lab at Emory: Machine Learning Tutorial Site",sub:"A teaching website on machine learning for computational chemistry",meta:"Liu Laboratory, Emory University \u00b7 Student Researcher \u00b7 Jun\u2013Dec 2024",
+ facts:[["100%","accuracy on the PAH training set"],["PAHs","classified as carcinogenic or not"],["RDKit","Morgan fingerprints"],["ROC","curves to evaluate the model"]],
+ body:"<p>I built a public tutorial website that introduces machine learning for computational chemistry, written for high school students and early learners.</p><h2>Machine learning model</h2><p>I expanded on an existing supervised classification pipeline, then developed and trained a model that distinguishes carcinogenic molecules from non-carcinogenic ones from their molecular structure alone. Using scikit-learn and RDKit, each polycyclic aromatic hydrocarbon (PAH) is encoded as a Morgan fingerprint, a numerical description of its structure. The model compares each molecule with the others and learns which structural patterns go with carcinogenicity.</p><p>The trained model classified every PAH in the training set correctly, for 100% accuracy, and I evaluated it with ROC curves. The tutorial site walks learners through that same pipeline.</p><h2>Teaching modules</h2><ul><li>Chemoinformatics basics and dataset configuration.</li><li>Using chemistry APIs such as PubChem and RDKit.</li><li>Evaluating a classifier with ROC curves.</li></ul>",
+ tags:"Python \u00b7 scikit-learn \u00b7 RDKit \u00b7 PubChem \u00b7 Web development"},
+{id:"emg-glove",cat:2,h:20,title:"EMG Assistive Glove",sub:"A wearable glove that senses muscle signals and drives the fingers to restore and strengthen hand function",meta:"Independent engineering project \u00b7 Science fair",
+ facts:[["~$197","total cost"],["300 ms","per movement"],["3","EMG sensors, 5 servos"],["100%","correct finger-group detection"]],
+ body:"<p>An assistive glove<!--figs:emgfin|The assembled glove and wrist brace--> that senses the movement a person intends to make and mimics and strengthens it. Three EMG (electromyography) sensors on the forearm read muscle signals, an Arduino-class microcontroller interprets them, and five micro servos on a 3D-printed wrist brace pull threads sewn into the glove to curl the fingers.</p><h2>The problem</h2><p>Conditions such as rheumatoid arthritis, carpal tunnel syndrome, Dupuytren\u2019s contracture, and Parkinson\u2019s disease can limit how well a person uses their hands. The World Health Organization estimates that about 4% of people worldwide live with functional disabilities that make basic tasks difficult. Most prostheses replace a missing limb entirely, while devices that supplement an existing, impaired hand are a largely unexplored market, and few are affordable.</p><h2>How it works</h2><!--figs:emgwire|Wiring: three EMG sensors in, five servos out;emgcode|Arduino code--><ul><li><b>Sense:</b> each of the three EMG sensors is assigned to a group of fingers: thumb, index and middle, and ring and pinky. A sensor reads the electrical signal a muscle produces when it contracts.</li><li><b>Interpret:</b> the microcontroller reads each sensor on an analog pin. When a signal rises above that finger group\u2019s threshold, it counts as an intended contraction.</li><li><b>Act:</b> the matching micro servos turn and pull a thread attached to each finger, curling it. The glove carries out each movement within about 300 milliseconds.</li></ul><h2>Design and build</h2><!--figs:emg3d|SolidWorks model of the glove system--><ul><li>Modeled the wrist brace that holds the servos in SolidWorks, then 3D printed it and mounted each servo onto it.</li><li>Bought the sensors, servos, microcontroller, battery pack, and glove off the shelf, so the work was in the integration.</li><li>Wired the system with solder and jump wires: the sensors run from the microcontroller\u2019s 5 V supply, and the servos run from a separate 4.5 V battery pack.</li><li>Sewed a thread through each finger of the glove and tied the other end to its servo.</li></ul><h2>Testing and calibration</h2><!--figs:emgtest|Watching the signal on the Serial Plotter--><p>Finding where on the arm to place each sensor took trial and error: I tried locations, moved each finger one at a time, and watched for signal changes. The sensors were sensitive enough that any finger movement caused some fluctuation, so I used the Arduino Serial Plotter to graph each sensor and chose a threshold range that picked out one specific finger group. In the plotted signal, the line stays flat until the finger contracts, then spikes high and low, and that spike sets the threshold.</p><h2>Results</h2><!--figs:emgp|Science fair poster--><ul><li>The sensors correctly identified which finger group was contracted every time.</li><li>The servos closed my hand fully, and each movement completed within a 300-millisecond window.</li><li>Total cost was about $197: three EMG sensors ($150), five micro servos ($10), the microcontroller ($17), and about $20 for wiring, solder, batteries, filament, and the glove. Many prostheses and similar devices cost up to thousands of dollars.</li></ul><h2>What\u2019s next</h2><ul><li>Isolate each individual finger by combining signal ranges from multiple sensors.</li><li>Add a mechanism that helps open the hand instead of relying on its natural resting position.</li><li>Make the design more compact and sleek.</li></ul>",
+ tags:"SolidWorks \u00b7 3D printing \u00b7 Arduino (C++) \u00b7 EMG sensing \u00b7 Servo control \u00b7 Soldering"},
+{id:"desalination",cat:2,h:175,title:"Solar-Powered Desalination Device",sub:"A portable electrochemical desalination cell that turns salt water into drinking water for disaster relief",meta:"Team project with Daylia Lian and Vikram Bora \u00b7 Science fair",
+ facts:[["14.5 h to 4 h","100 mL, after two design improvements"],["3.5\u00d7","faster at 12 V than 5 V"],["30 cells","make 3 L in 14 hours"],["$20","estimated manufacturing cost"]],
+ body:"<p>A portable, solar-powered<!--figs:desset|The experimental setup: solar cells, pumps, and the desalination cell--> electrochemical desalination device built from readily available materials, to give people drinking water after hurricanes and other disasters that cut off the water supply on coasts and islands. I built it with Daylia Lian and Vikram Bora.</p><h2>The problem</h2><p>Storm surges contaminate freshwater with salt water, as Hurricane Ian did in Fort Myers, and power loss and broken pipes cut off supply as well. Bottled water from emergency agencies often does not reach the people who need it most, and shipping it creates plastic waste. We wanted a device that could run on a small solar panel with no grid power.</p><h2>How it works</h2><!--figs:desstack|Expanded view of each layer in the cell;descell|How ions move through the cell--><p>The cell uses electrochemistry rather than boiling or high-pressure pumping. Salt water flows through chambers separated by ion-exchange membranes. At the cathode, an electrolyte is reduced by electrons from the power source. That draws sodium ions (Na+) out of the salt water through a cation exchange membrane and pushes chloride ions (Cl-) through an anion exchange membrane into a second chamber. The electrolyte then flows to the anode, where it is oxidized and releases the electrons back. The net result is that the external power moves salt ions from one chamber to the other, so one stream becomes fresh and the other saltier. The rate of desalination is proportional to the current.</p><h2>Design</h2><ul><li><b>Membranes:</b> Fumasep FAS-PET-75 anion membrane and Nafion 117 cation membranes.</li><li><b>Electrolyte:</b> a water-soluble vitamin B complex, a safer and cheaper option than the ferro/ferricyanide we also tested.</li><li><b>Electrodes:</b> graphite.</li><li><b>Chambers:</b> 3D printed in PLA, with nylon mesh spacers.</li><li><b>Setup:</b> small pumps circulate the electrolyte and the salt water, and solar panels can power the cell directly.</li></ul><h2>Testing</h2><p>Each trial started with two containers of 100 mL of 35 ppt saline solution. We measured salt content with a conductivity meter every 30 minutes, tracked the initial desalination speed over the first hour, and timed how long it took to reach 250 ppm, the recommended limit for sodium in drinking water. We varied electrolyte, electrolyte concentration, pump speed, voltage, and chamber thickness.</p><h2>Results</h2><!--figs:desplot|Initial design: 100 mL in 14.5 hours;desimp|5 V versus 12 V;desbars|Effect of electrolyte, concentration, design, and pump speed--><ul><li><b>Initial design:</b> 4 mm chambers and a 5 V supply desalinated 100 mL in 14.5 hours, and the cell ran directly from a solar panel.</li><li><b>Improvement 1, voltage:</b> raising the voltage from 5 V to 12 V cut that to about 4 hours, 3.5 times faster. The trade-off is faster electrode corrosion.</li><li><b>Improvement 2, thinner chambers:</b> cutting the chamber thickness from 4 mm to 2 mm brought it to about 9 hours, 1.6 times faster.</li><li><b>Parameters:</b> desalination speed rose with electrolyte concentration and voltage, was similar for ferrocyanide and vitamin B2, and did not depend strongly on pump speed. Vitamin B complex proved a viable electrolyte.</li><li><b>Scale:</b> a bank of 30 cells running on vitamin B complex could desalinate 3 liters of salt water in 14 hours, about what an adult needs to drink in a day.</li></ul><h2>Cost</h2><!--figs:desp|Science fair poster--><p>The home-built device cost about $80: roughly $50 in materials, including a $15 10 W solar panel and $13 for electrodes and electrolyte, plus two hours of labor at $15 per hour. We estimate bulk manufacturing would cut the cost by about a factor of four, to roughly $20, which would pay for itself after about 14 one-liter bottles of water at $1.50 each.</p><h2>What\u2019s next</h2><ul><li>Study how the vitamin B concentration affects speed.</li><li>Test other electrode materials that are cheaper, faster, and withstand higher voltage.</li><li>Make the cell even thinner.</li><li>Add a filter to remove particulate matter.</li></ul>",
+ tags:"Electrochemistry \u00b7 Ion-exchange membranes \u00b7 3D printing (PLA) \u00b7 Solar power \u00b7 Data collection \u00b7 Cost analysis"},
+{id:"versa",cat:2,h:265,title:"Versa: AI English Tutor Startup",sub:"First business hire at a language-learning startup with 100,000+ users",meta:"Versa (Dynahire, Inc.) \u00b7 Business Operations & Growth Associate \u00b7 Sep\u2013Dec 2025",
+ facts:[["100,000+","global users"],["10+","creators contacted"],["3","countries"]],
+ body:"<p>Versa is an AI-powered personal English tutor. I was the first hire on its business operations team, working remotely on growth.</p><h2>What I did</h2><ul><li>Ran market and database analysis to identify the app\u2019s target demographics.</li><li>Led outreach to 10+ content creators and influencers in Thailand, Vietnam, and Mexico to set up advertising partnerships.</li></ul>",
+ tags:"Market analysis \u00b7 Database analysis \u00b7 Partnerships \u00b7 Outreach"},
+{id:"ri3d",cat:3,h:30,title:"Philly Robot in 3 Days",sub:"A full 2026 FRC robot, built in three days",meta:"FIRST Robotics Competition · 2026",facts:[["3 days","concept to working robot"]],
+ body:"<p>A fully functioning 2026 FIRST Robotics Competition robot, designed and built in three days.</p>",tags:""},
+{id:"frc-2025",cat:3,h:215,title:"FRC Robot 2025",sub:"FIRST Robotics Competition 2025",meta:"FIRST Robotics Competition · 2025",facts:[],body:"<p>A fully functioning robot for the 2025 FIRST Robotics Competition.</p>",tags:""},
+{id:"frc-2024",cat:3,h:260,title:"FRC Robot 2024",sub:"FIRST Robotics Competition 2024",meta:"FIRST Robotics Competition · 2024",facts:[],body:"<p>A fully functioning robot for the 2024 FIRST Robotics Competition.</p>",tags:""},
+{id:"frc-2023",cat:3,h:340,title:"FRC Robot 2023",sub:"FIRST Robotics Competition 2023",meta:"FIRST Robotics Competition · 2023",facts:[],body:"<p>A fully functioning robot for the 2023 FIRST Robotics Competition.</p>",tags:""},
+{id:"frc-2022",cat:3,h:5,title:"FRC Robot 2022",sub:"FIRST Robotics Competition 2022",meta:"FIRST Robotics Competition · 2022",facts:[],body:"<p>A fully functioning robot for the 2022 FIRST Robotics Competition.</p>",tags:""}
+];
+P.forEach(function(p){p.media=p.media||[]});
+var IMG={"dhfox2": "images/dhfox2.jpg", "dhfly": "images/dhfly.jpg", "dharch": "images/dharch.jpg", "dhsim": "images/dhsim.jpg", "dhmap": "images/dhmap.jpg", "dhpath": "images/dhpath.jpg", "dhpitch": "images/dhpitch.jpg", "dhmotor": "images/dhmotor.jpg", "dhlean": "images/dhlean.jpg", "dhvision": "images/dhvision.jpg", "dhmppi": "images/dhmppi.jpg", "dhwall": "images/dhwall.jpg", "dhfox": "images/dhfox.jpg", "dhirl": "images/dhirl.jpg", "dhcad": "images/dhcad.jpg", "emgp": "images/emgp.jpg", "emgfin": "images/emgfin.jpg", "emg3d": "images/emg3d.jpg", "emgwire": "images/emgwire.jpg", "emgtest": "images/emgtest.jpg", "emgcode": "images/emgcode.jpg", "desp": "images/desp.jpg", "desset": "images/desset.jpg", "descell": "images/descell.jpg", "desstack": "images/desstack.jpg", "desplot": "images/desplot.jpg", "desimp": "images/desimp.jpg", "desbars": "images/desbars.jpg", "grid": "images/grid.jpg", "cane": "images/cane.jpg", "micro": "images/micro.jpg", "micro1": "images/micro1.jpg", "micro2": "images/micro2.jpg", "iris": "images/iris.jpg", "swim": "images/swim.jpg", "strain": "images/strain.jpg", "ri3d": "images/ri3d.jpg", "adv": "images/adv.jpg", "f25": "images/f25.jpg", "f24": "images/f24.jpg", "f23": "images/f23.jpg", "f22": "images/f22.jpg"};
+var IMG2={ftplot:"images/ftplot.jpg",ftphoto:"images/ftphoto.jpg",a27c:"images/a27c.jpg",rcad:"images/rcad.jpg",a27:"images/a27.jpg",a2627:"images/a2627.jpg",a26c:"images/a26c.jpg",a26x:"images/a26x.jpg",ms:"images/ms.jpg",mx:"images/mx.jpg",ma:"images/ma.jpg",mf2:"images/mf2.jpg",mf1:"images/mf1.jpg",mt1:"images/mt1.jpg",mt2:"images/mt2.jpg",mc:"images/mc.jpg",poster:"images/poster.jpg",agphoto:"images/agphoto.jpg",agcad:"images/agcad.jpg",agctrl:"images/agctrl.jpg",agdye:"images/agdye.jpg",aglpt:"images/aglpt.jpg",agarch:"images/agarch.jpg",agpres:"images/agpres.jpg",liu:"images/liu.jpg",hero:"images/hero.jpg",drone:"images/drone.jpg",reg:"images/reg.jpg",v:"images/v.jpg",r:"images/r.jpg",z:"images/z.jpg",t:"images/t.jpg"};
+var X={
+"liu-lab":{cover:"liu",fit:1,media:[["liu","PAH classification example from the tutorial"]]},
+"dronehacks":{cover:"dhirl",pos:"50% 55%",media:[["dhcad","CAD of the drone"],["dhfly","The drone on the real course"]]},
+"iarc-drone":{cover:"drone",pos:"50% 65%",media:[["drone","IARC quadrotor with GPS and a 3D-printed electronics mount"]]},
+"regular-class":{cover:"reg",pos:"50% 100%",media:[["reg","The Regular Class aircraft with the team"]]},
+"versa":{cover:"v",media:[["v","The Versa app"]]},
+"advanced-payload":{cover:"r",media:[["r","Tracked rover prototype with Raspberry Pi and camera"]]},
+"advanced-class":{cover:"z",media:[["z","Zenith, the Advanced Class tailsitter"],["adv","Advanced Class aircraft in the field"]]},
+"micro-class":{cover:"t",media:[["t","Tempest, the Micro Class aircraft"],["micro","Final Micro Class aircraft"],["micro2","Second Micro Class iteration"],["micro1","First Micro Class iteration"]]},
+"active-grid":{cover:"grid",media:[["grid","Fluorescent dye revealing flow structures in the water channel"],["agdye","Turbulence visualization with fluorescent dye and UV lights"],["agphoto","Assembled active grid in the water channel"],["agcad","CAD of the active grid slotted into the water channel"],["agctrl","Control hardware and wiring diagram"],["agarch","5 \u00d7 5 active grid control architecture"],["aglpt","Example LPT particle trajectories in baseline channel flow, without active-grid forcing"],["agpres","Presenting at the 6th annual Frontiers of Energy Research poster session"]]},
+"echo-pro":{cover:"cane",media:[["cane","The Echo Pro cane"]]},
+"sung-lab":{cover:"swim",hero:"strain",media:[["swim","Liebau swimming robot"],["strain","Strain test setup on a closed-loop impedance pump"],["iris","Iris impedance pump with radial actuation"]]},
+"emg-glove":{cover:"emgp",fit:1,media:[["emgp","Science fair poster: Building an EMG Assistive Glove"]]},
+"desalination":{cover:"desp",fit:1,media:[["desp","Science fair poster: Building a Portable, Solar-Powered Water Desalination Device"]]},
+"ri3d":{cover:"ri3d",media:[["ri3d","The Philly Robot in 3 Days build"]]},
+"frc-2025":{cover:"f25",media:[["f25","2025 competition robot"]]},
+"frc-2024":{cover:"f24",media:[["f24","2024 competition robot"]]},
+"frc-2023":{cover:"f23",media:[["f23","2023 competition robot"]]},
+"frc-2022":{cover:"f22",media:[["f22","2022 competition robot"]]}};
+X["micro-class"].media.push(["hero","Tempest and Zenith side by side"]);X["advanced-class"].media.push(["hero","Zenith and Tempest side by side"]);
+Object.keys(IMG2).forEach(function(k){IMG[k]=IMG2[k]});
+P.forEach(function(p){var x=X[p.id];if(x){p.cover=IMG[x.cover];p.fit=x.fit;p.pos=x.pos;p.hero=x.hero?IMG[x.hero]:null;p.media=x.media.map(function(m){return {t:"img",src:IMG[m[0]],cap:m[1]}})}});
+
+P.find(function(p){return p.id==="active-grid"}).extra="<h2 style='font-size:1.5rem;margin:2.5rem 0 1rem'>Research poster</h2><figure class='poster rv'><img alt='Poster: Building a Programmable Turbulence Generator' src='"+IMG.poster+"'><figcaption>Building a Programmable Turbulence Generator. Click to zoom.</figcaption></figure>";
+var FEAT=[];
+function cover(p){return '<div class="cover'+(p.cover?'':' ph')+(p.fit?' fit':'')+'" style="--h:'+p.h+'">'+(p.cover?'<div class="ci" style="background-image:url('+p.cover+');background-position:'+(p.pos||'center')+'"></div>':'')+'</div>'}
+function card(p,big){return '<a class="card rv'+(big?' big':'')+'" href="#'+p.id+'">'+cover(p)+'<h3>'+p.title+'</h3><p>'+p.sub+'</p></a>'}
+function home(){
+  var byId=function(id){return P.find(function(p){return p.id===id})};
+  var h='<header class="hero"><div class="hbg" style="background-image:url('+IMG.hero+')"></div><div class="wrap"><p class="kick">Mechanical Engineering and Applied Mechanics \u00b7 University of Pennsylvania<br><span class="prog">Vagelos Integrated Program in Energy Research (VIPER)</span></p><h1>Darion Lian</h1><p class="role">Mechanical Lead, Penn Aerial Robotics</p><p class="pitch">I design, build, and flight-test aircraft, robots, and the instruments that measure fluid flow.</p><ul class="stats"><li><b>1st</b><span>Design, SAE Aero West, Advanced Class</span></li><li><b>3rd</b><span>Overall, SAE Aero West, Micro Class</span></li><li><b>Winner</b><span>MakeMIT × Harvard Hardware Hackathon</span></li><li><b>Published</b><span>APS Division of Fluid Dynamics, 2026 abstract</span></li></ul></div></header>';
+  h+='<div class="wrap">';
+  CATS.forEach(function(c,i){var l=P.filter(function(p){return p.cat===i&&FEAT.indexOf(p.id)<0});if(!l.length)return;h+='<h2 class="cat">'+c+'</h2><div class="grid">'+l.map(function(p){return card(p)}).join('')+'</div>'});
+  return h+'</div>'}
+function secs(p){if(!p.sections)return '';return p.sections.map(function(s,i){
+  var f=(s.figs||[]).map(function(x){return IMG[x[0]]?'<figure><img alt="'+x[1]+'" src="'+IMG[x[0]]+'"><figcaption>'+x[1]+'</figcaption></figure>':'<div class="slot fig">'+x[1]+'</div>'}).join('');
+  return '<section class="srow rv'+(i%2?' rev':'')+'"><div class="st"><h2>'+s.h+'</h2>'+s.t+'</div><div class="sf">'+f+'</div></section>'}).join('')}
+
+function story(p,showImg,hi){
+  var C=[],tx=function(h){return h.replace(/<[^>]+>/g,'').length};
+  p.body.split('<h2>').forEach(function(x,i){var h=i?'<h2>'+x:x,fg=[],m=h.match(/<!--figs:([^>]*?)-->/);
+    if(m){h=h.replace(m[0],'');m[1].split(';').forEach(function(t){var a=t.split('|');if(IMG[a[0]])fg.push({s:IMG[a[0]],c:a[1]||''})})}
+    if(tx(h)>0||/vwrap/.test(h))C.push({h:h,f:fg})});
+  (p.sections||[]).forEach(function(s){C.push({h:'<h2>'+s.h+'</h2>'+s.t,f:(s.figs||[]).filter(function(a){return IMG[a[0]]}).map(function(a){return {s:IMG[a[0]],c:a[1]}})})});
+  if(p.tags)C[C.length-1].h+='<h2>Tools</h2><p>'+p.tags+'</p>';
+  var used={};C.forEach(function(c){c.f.forEach(function(f){used[f.s]=1})});
+  var pool=[];(p.media||[]).forEach(function(m){if(m.t==='video'||used[m.src]||!m.src)return;used[m.src]=1;pool.push({s:m.src,c:m.cap||p.title})});
+  if(showImg&&pool.length>1)pool=pool.filter(function(f){return f.s!==hi});
+  C.forEach(function(c){c.n=tx(c.h)+(/vwrap/.test(c.h)?300:0)});
+  var want=function(n){return n<260?1:n<700?2:n<1150?4:4},cap=function(c){return want(c.n)};
+  /* push surplus images of an over-illustrated row back to the pool */
+  C.forEach(function(c){var k=cap(c);if(k===4&&c.f.length>4)k=4;if(c.f.length>k){pool=c.f.splice(k).concat(pool)}});
+  /* merge text rows that would have no picture */
+  var F=function(){return C.filter(function(c){return!c.f.length}).length};
+  while(F()>pool.length&&C.length>1){
+    var bi=-1;C.forEach(function(c,i){if(!c.f.length&&(bi<0||c.n<C[bi].n))bi=i});
+    var t=C[bi];if(bi>0){C[bi-1].h+=t.h;C[bi-1].n+=t.n}else{C[1].h=t.h+C[1].h;C[1].n+=t.n}
+    C.splice(bi,1)}
+  /* give every bare row one picture, then spread the rest where the text is longest */
+  var add=C.map(function(){return 0}),left=pool.length;
+  C.forEach(function(c,i){if(!c.f.length&&left>0){add[i]=1;left--}});
+  while(left>0){var b=-1,br=0;C.forEach(function(c,i){var k=c.f.length+add[i];if(k>=cap(c)&&k>=(c.n<260?1:2))return;if(k>=4)return;var r=c.n/(k||1);if(r>br){br=r;b=i}});if(b<0)break;add[b]++;left--}
+  var out='';
+  C.forEach(function(c,i){var take=pool.splice(0,add[i]),fg=c.f.concat(take),k=fg.length;
+    var tall=c.n<200&&C.length===1;
+    var figs=fg.map(function(f){return '<figure><img loading="lazy" alt="'+f.c+'" src="'+f.s+'"><figcaption>'+f.c+'</figcaption></figure>'}).join('');
+    out+='<section class="srow story rv'+(i%2?' rev':'')+(tall?' stack':'')+(c.n>1000&&k<=2?' long':'')+'"><div class="st">'+c.h+'</div>'+(k?'<div class="sf n'+Math.min(k,4)+(c.n<450&&k===1?' sm':'')+(k===2&&c.n>=700?' col':'')+'">'+figs+'</div>':'')+'</section>'});
+  if(pool.length)out+='<div class="gallery">'+pool.map(function(f){return '<figure class="rv"><img loading="lazy" alt="'+f.c+'" src="'+f.s+'"><figcaption>'+f.c+'</figcaption></figure>'}).join('')+'</div>';
+  return out}
+function detail(p,i){
+  var g;
+  if(p.media.length){g=p.media.map(function(m){return '<figure class="rv">'+(m.t==='video'?'<video controls preload="metadata" src="'+m.src+'"></video>':'<img loading="lazy" alt="'+(m.cap||p.title)+'" src="'+m.src+'">')+(m.cap?'<figcaption>'+m.cap+'</figcaption>':'')+'</figure>'}).join('')}
+  else{g='<div class="slot vid">Video goes here</div>'+[1,2,3,4].map(function(n){return '<div class="slot">Photo '+n+'</div>'}).join('')}
+  var hi=p.hero||p.cover,showImg=hi&&!p.fit;
+  var h='<header class="dhero'+(showImg?'':' ph')+'" style="--h:'+p.h+'"><div class="dbg"'+(showImg?' style="background-image:url('+hi+');background-position:'+(p.pos||'center')+'"':'')+'></div><div class="wrap"><a class="back" href="#home">\u2190 All projects</a><h1>'+p.title+'</h1><p class="meta">'+p.meta+'</p></div></header>';
+  if(p.facts.length)h+='<div class="fband"><ul class="wrap fl">'+p.facts.map(function(x){return '<li><b>'+x[0]+'</b><span>'+x[1]+'</span></li>'}).join('')+'</ul></div>';
+  var prev=P[(i+P.length-1)%P.length],next=P[(i+1)%P.length];
+  return h+'<div class="wrap detail"><div class="stories">'+story(p,showImg,hi)+'</div><div class="more"><a href="#'+prev.id+'">\u2190 '+prev.title+'</a><a href="#'+next.id+'">'+next.title+' \u2192</a></div></div>'}
+
+function fitStories(){document.querySelectorAll('.story:not(.stack)').forEach(function(r){var st=r.querySelector('.st'),sf=r.querySelector('.sf');if(!sf||!st)return;var imgs=sf.querySelectorAll('img');imgs.forEach(function(i){i.style.maxHeight=''});if(r.getBoundingClientRect().width<=0||getComputedStyle(r).gridTemplateColumns.split(' ').length<2)return;if(sf.classList.contains('n1')){var sh=st.offsetHeight;if(sh>0&&sf.offsetHeight>sh*1.35){var mh=Math.max(240,Math.round(sh*1.15));imgs.forEach(function(i){i.style.maxHeight=mh+'px'})}}})}
+(function(){var q=0,go=function(){cancelAnimationFrame(q);q=requestAnimationFrame(fitStories)};document.addEventListener('load',go,true);window.addEventListener('hashchange',function(){setTimeout(go,60)});window.addEventListener('resize',go);setTimeout(go,300)})();
+var LB={l:[],k:0};
+function lbShow(k){LB.k=(k+LB.l.length)%LB.l.length;var im=LB.l[LB.k];document.getElementById('lbi').src=im.src;document.getElementById('lbi').alt=im.alt;document.getElementById('lbc').textContent=im.alt+'  ('+(LB.k+1)+'/'+LB.l.length+')';document.getElementById('lb').hidden=false}
+function lbHide(){document.getElementById('lb').hidden=true}
+document.addEventListener('click',function(e){var t=e.target;if(t.matches&&t.matches('.gallery img,.poster img,.srow img')){LB.l=[].slice.call(document.querySelectorAll('.gallery img,.poster img,.srow img'));lbShow(LB.l.indexOf(t))}else if(t.id==='lb'||t.id==='lbx')lbHide();else if(t.id==='lbp')lbShow(LB.k-1);else if(t.id==='lbn')lbShow(LB.k+1)});
+document.addEventListener('keydown',function(e){if(document.getElementById('lb').hidden)return;if(e.key==='Escape')lbHide();else if(e.key==='ArrowLeft')lbShow(LB.k-1);else if(e.key==='ArrowRight')lbShow(LB.k+1)});
+function startFlow(){var c=document.getElementById('flow');if(!c)return;var x=c.getContext('2d'),W,H,Q=[],t=0,still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var r=c.getBoundingClientRect(),d=window.devicePixelRatio||1;W=r.width;H=r.height;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
+  function sp(p,f){p.x=f?Math.random()*W:-10;p.y=Math.random()*H;p.h=[]}
+  for(var i=0;i<130;i++){var p={};sp(p,1);Q.push(p)}
+  function step(){if(!document.body.contains(c))return;t+=.01;x.clearRect(0,0,W,H);x.strokeStyle='rgba(255,255,255,.32)';x.lineWidth=1.2;
+    Q.forEach(function(p){p.x+=2.2+Math.sin(p.y*.01+t)*.8;p.y+=Math.sin(p.x*.012+p.y*.008+t*3)*1.2;p.h.push([p.x,p.y]);if(p.h.length>22)p.h.shift();if(p.x>W+10)sp(p,0);
+      x.beginPath();p.h.forEach(function(q,j){j?x.lineTo(q[0],q[1]):x.moveTo(q[0],q[1])});x.stroke()});
+    if(!still)requestAnimationFrame(step)}
+  step()}
+function post(){document.documentElement.classList.add('js');lbHide();
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});els.forEach(function(el){io.observe(el)})}else els.forEach(function(el){el.classList.add('in')});
+  startFlow()}
+function render(x){
+  var id=typeof x==='string'?x:location.hash.replace('#',''),i=P.findIndex(function(p){return p.id===id});
+  var out;try{out=i<0?home():detail(P[i],i)}catch(err){try{out=home()}catch(e2){out='<div class="wrap" style="padding:4rem 1.5rem"><h1>Darion Lian</h1><p>Something went wrong loading this page. <a href="" onclick="location.reload();return false">Reload</a></p></div>'}}document.getElementById('app').innerHTML=out;
+  document.title=(i<0?'':P[i].title+' – ')+'Darion Lian – Engineering Portfolio';
+  window.scrollTo(0,0);post()}
+
+document.addEventListener('securitypolicyviolation',function(e){var w=document.getElementById('vwrap');if(w&&/frame|child|default/.test(e.violatedDirective))w.classList.add('off')});
+function go(id){try{history.pushState(null,'','#'+id)}catch(e){try{location.hash=id}catch(_){}}render(id)}
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||e.defaultPrevented)return;e.preventDefault();go(a.getAttribute('href').slice(1))});
+window.addEventListener('hashchange',function(){render()});window.addEventListener('popstate',function(){render()});render();
+</script>
+<script>
+(function(){
+var root=document.documentElement;if(!root.classList.contains('intro-on'))return;
+var M={"w": 900, "h": 806, "hub1": [477.1, 166.8], "hub2": [743.9, 330.4], "R1": 103.8, "R2": 116.4, "u1": [-0.357, -0.934], "u2": [-0.445, -0.896], "tipL": [103.8, 251.7], "tipR": [742.7, 679.7], "center": [453.1, 402.8], "nose": [0.91, -0.4], "edgeP": [434.3, 453.6], "edgeE": [0.8062, 0.5917]};
+var el=document.getElementById('intro'),bgl=document.getElementById('introBg'),cv=document.getElementById('introFx'),ctx=cv.getContext('2d'),pl=document.getElementById('introPlane'),img=document.getElementById('introImg'),sv=document.getElementById('introProps'),skip=document.getElementById('introSkip');
+try{sessionStorage.setItem('introSeen','1')}catch(e){}
+var D=3.5,TAIL=.4,done=false,quitting=false,started=false;
+function cl(x){return x<0?0:x>1?1:x}
+function finish(){if(done)return;done=true;root.classList.remove('intro-on');if(el&&el.parentNode)el.parentNode.removeChild(el)}
+function quit(){if(done||quitting)return;quitting=true;el.style.transition='opacity .25s';el.style.opacity='0';setTimeout(finish,270)}
+skip.addEventListener('click',quit);
+document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Enter'||e.key===' ')quit()});
+var vw,vh,dpr,BW,s0,sx,sy,ex,ey,dx,dy,fAng,noseAng=Math.atan2(M.nose[1],M.nose[0]);
+function layout(){vw=innerWidth||1000;vh=innerHeight||600;dpr=Math.min(2,window.devicePixelRatio||1);
+cv.width=Math.round(vw*dpr);cv.height=Math.round(vh*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);
+BW=Math.max(320,Math.min(780,vw*0.54));s0=BW/M.w;
+var mg=BW*0.85;sx=-mg;sy=vh+mg;ex=vw+mg;ey=-mg;
+var L=Math.hypot(ex-sx,ey-sy);dx=(ex-sx)/L;dy=(ey-sy)/L;fAng=Math.atan2(dy,dx)}
+layout();
+var NS='http://www.w3.org/2000/svg';
+function mk(tag,at,par){var n=document.createElementNS(NS,tag);for(var k in at)n.setAttribute(k,at[k]);par.appendChild(n);return n}
+var defs=mk('defs',{},sv),gr=mk('radialGradient',{id:'introDisc'},defs);
+mk('stop',{offset:'0','stop-color':'#cfe6ff','stop-opacity':'.10'},gr);mk('stop',{offset:'.75','stop-color':'#cfe6ff','stop-opacity':'.20'},gr);mk('stop',{offset:'1','stop-color':'#cfe6ff','stop-opacity':'.34'},gr);
+var K=0.30,props=[{h:M.hub1,R:M.R1,u:M.u1,ph:0},{h:M.hub2,R:M.R2,u:M.u2,ph:1.3}];
+props.forEach(function(p){
+ var deg=Math.atan2(p.u[1],p.u[0])*180/Math.PI;
+ p.g=mk('g',{transform:'translate('+p.h[0]+' '+p.h[1]+') rotate('+deg+')'},sv);
+ p.disc=mk('ellipse',{cx:0,cy:0,rx:p.R,ry:p.R*K,fill:'url(#introDisc)',stroke:'rgba(255,255,255,.28)','stroke-width':1.2},p.g);
+ p.gh=[];for(var i=0;i<6;i++)p.gh.push(mk('path',{fill:'rgba(18,26,40,'+(0.32-i*0.045).toFixed(3)+')'},p.g));
+ p.bl=[mk('path',{fill:'#131a26',stroke:'rgba(255,255,255,.9)','stroke-width':1.3,'stroke-linejoin':'round'},p.g),mk('path',{fill:'#131a26',stroke:'rgba(255,255,255,.9)','stroke-width':1.3,'stroke-linejoin':'round'},p.g)];
+});
+function bladeD(R,th,sg){var tx=sg*R*Math.cos(th),ty=sg*R*K*Math.sin(th),l=Math.hypot(tx,ty)||1,nx=-ty/l,ny=tx/l;
+ function P(f,w){return (f*tx+nx*w).toFixed(1)+','+(f*ty+ny*w).toFixed(1)}
+ return 'M'+P(.14,2)+' L'+P(.5,7)+' L'+P(1,3.2)+' L'+P(1,-3.2)+' L'+P(.5,-7)+' L'+P(.14,-2)+' Z'}
+var tipsL=[],tipsR=[],parts=[],streaks=[],px=0,py=0,ppx=0,ppy=0,pt=0,cx0=M.center[0],cy0=M.center[1];
+for(var i=0;i<20;i++)streaks.push({o:(Math.random()*2-1),s:Math.random()*2-1,len:120+Math.random()*260,a:.05+Math.random()*.10});
+function sp(lx,ly,c,s,k){var ax=(lx-cx0)*k,ay=(ly-cy0)*k;return [px+ax*c-ay*s,py+ax*s+ay*c]}
+var t0=null,last=0;
+function frame(now){if(done||quitting)return;
+ if(t0===null){t0=now;last=now}
+ var t=(now-t0)/1000,dt=Math.min(.05,Math.max(.001,(now-last)/1000));last=now;
+ var u=cl(t/D),p=.75*u+.25*u*u;
+ ppx=px;ppy=py;px=sx+(ex-sx)*p;py=sy+(ey-sy)*p;
+ var vxp=(px-ppx)/dt,vyp=(py-ppy)/dt;if(t<=0.02){vxp=0;vyp=0}
+ var sc=.85+.3*p,k=sc*s0,rot=fAng-noseAng+.03*Math.sin(t*5),c=Math.cos(rot),s=Math.sin(rot);
+ pl.style.opacity='1';
+ pl.style.transform='translate('+px.toFixed(1)+'px,'+py.toFixed(1)+'px) rotate('+rot.toFixed(4)+'rad) scale('+k.toFixed(4)+') translate('+(-cx0)+'px,'+(-cy0)+'px)';
+ // propellers
+ var om=(20+70*cl(t/.5))*1;
+ props.forEach(function(q){var th=q.ph+t*om;
+  var dsc=(t<.15)?(0.2+0.8*cl(t/.15)):1;
+  for(var i=0;i<6;i++)q.gh[i].setAttribute('d',bladeD(q.R,th-(i+1)*.5,1)+bladeD(q.R,th-(i+1)*.5,-1));
+  q.bl[0].setAttribute('d',bladeD(q.R,th,1));q.bl[1].setAttribute('d',bladeD(q.R,th,-1))});
+ // effects
+ ctx.clearRect(0,0,vw,vh);ctx.globalCompositeOperation='lighter';ctx.lineCap='round';
+ var nxs=dy*-1,nys=dx; // perpendicular to flight
+ // speed streaks
+ var R0=Math.hypot(vw,vh)*.62,cxv=vw/2,cyv=vh/2;
+ for(var i=0;i<streaks.length;i++){var st=streaks[i];st.s-=dt*2.4;if(st.s<-1)st.s+=2;
+  var bx=cxv+nxs*st.o*R0*.7+dx*st.s*R0,by=cyv+nys*st.o*R0*.7+dy*st.s*R0;
+  ctx.strokeStyle='rgba(190,225,255,'+(st.a*cl(t/.4)).toFixed(3)+')';ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(bx,by);ctx.lineTo(bx+dx*st.len,by+dy*st.len);ctx.stroke()}
+ // wingtip vortices
+ var tl=sp(M.tipL[0],M.tipL[1],c,s,k),tr=sp(M.tipR[0],M.tipR[1],c,s,k);
+ tipsL.push([tl[0],tl[1],t]);tipsR.push([tr[0],tr[1],t]);
+ var AGE=1.25;
+ [tipsL,tipsR].forEach(function(H){
+  while(H.length&&t-H[0][2]>AGE)H.shift();
+  for(var strand=0;strand<2;strand++){var ph=strand*Math.PI;var prev=null;
+   for(var i=0;i<H.length;i++){var a=t-H[i][2],amp=18*Math.min(1,a/.3)*(1+.9*a)*sc,o=amp*Math.sin(15*a+ph);
+    var X=H[i][0]+nxs*o,Y=H[i][1]+nys*o;
+    if(prev){var f=1-a/AGE;ctx.strokeStyle='rgba(205,236,255,'+(.8*f*f).toFixed(3)+')';ctx.lineWidth=Math.max(.6,2.6*f*sc);ctx.beginPath();ctx.moveTo(prev[0],prev[1]);ctx.lineTo(X,Y);ctx.stroke()}
+    prev=[X,Y]}}
+  // core filament
+  ctx.beginPath();for(var i=0;i<H.length;i++){if(i)ctx.lineTo(H[i][0],H[i][1]);else ctx.moveTo(H[i][0],H[i][1])}
+  ctx.strokeStyle='rgba(205,236,255,.16)';ctx.lineWidth=1.2;ctx.stroke()});
+ // prop wash / blown lift
+ var nsx=M.nose[0]*c-M.nose[1]*s,nsy=M.nose[0]*s+M.nose[1]*c,wx=-nsx,wy=-nsy;
+ if(t<D*.97)props.forEach(function(q){var h=sp(q.h[0],q.h[1],c,s,k);
+  for(var n=0;n<6;n++){var ang=(Math.random()-.5)*.55,ca=Math.cos(ang),sa=Math.sin(ang),dxw=wx*ca-wy*sa,dyw=wx*sa+wy*ca,spd=(380+Math.random()*320)*sc;
+   parts.push({x:h[0]+(Math.random()-.5)*10,y:h[1]+(Math.random()-.5)*10,vx:dxw*spd+vxp*.45,vy:dyw*spd+vyp*.45,l:.55+Math.random()*.6,a:0,w:1+Math.random()*1.8})}});
+ for(var i=parts.length-1;i>=0;i--){var q=parts[i];q.a+=dt;if(q.a>q.l){parts.splice(i,1);continue}
+  q.x+=q.vx*dt;q.y+=q.vy*dt;q.vx*=.985;q.vy*=.985;var f=1-q.a/q.l;
+  ctx.strokeStyle='rgba(215,240,255,'+(.55*f*f).toFixed(3)+')';ctx.lineWidth=q.w*(0.6+f);ctx.beginPath();ctx.moveTo(q.x,q.y);ctx.lineTo(q.x-q.vx*.06,q.y-q.vy*.06);ctx.stroke()}
+ ctx.globalCompositeOperation='source-over';
+ var eX=M.edgeE[0]*c-M.edgeE[1]*s,eY=M.edgeE[0]*s+M.edgeE[1]*c,nX=-eY,nY=eX;
+ if(nX*nsx+nY*nsy<0){nX=-nX;nY=-nY}
+ var th=Math.atan2(nX,-nY),Lg=Math.abs(vw*Math.sin(th))+Math.abs(vh*Math.cos(th)),ep=sp(M.edgeP[0],M.edgeP[1],c,s,k),
+  E=((ep[0]-vw/2)*nX+(ep[1]-vh/2)*nY)+Lg/2-3*k,fe=BW*sc*.95*(1-.8*cl((u-.8)/.2)),
+  ST=[[0,0],[.1,.028],[.25,.156],[.5,.5],[.75,.844],[.9,.972],[1,1]],
+  mk2='linear-gradient('+(th*180/Math.PI).toFixed(2)+'deg,'+ST.map(function(q){return 'rgba(0,0,0,'+q[1]+') '+(E-fe+q[0]*fe).toFixed(1)+'px'}).join(',')+')';
+ if(u>=1)bgl.style.display='none';
+ bgl.style.webkitMaskImage=mk2;bgl.style.maskImage=mk2;
+ if(t>D+TAIL){finish();return}
+ requestAnimationFrame(frame)}
+function go(){if(started||done)return;started=true;requestAnimationFrame(frame)}
+var ready=img.decode?img.decode():Promise.resolve();
+ready.then(go,function(){if(img.complete&&img.naturalWidth)go();else finish()});
+setTimeout(function(){if(!started)finish()},2500);
+})();
+</script>
+</body>
+</html>
